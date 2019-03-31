@@ -1,0 +1,14 @@
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe.config
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe.manifest
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.application
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.pdb
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUI.resources
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Properties.Resources.resources
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.UserDialog.resources
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.GenerateResource.Cache
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe.manifest
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.application
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.pdb
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\SKGL.dll

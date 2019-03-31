@@ -1,0 +1,5 @@
+﻿RELEASE NOTES
+
+ * fixed bug which did not allow to generate a key with machine id 99999
+ * fixed bug when encrypting a key
+ * signed the assembly

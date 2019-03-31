@@ -1,0 +1,3 @@
+﻿RELEASE NOTES
+ 
+ * generate keys in  VirtualBox environment

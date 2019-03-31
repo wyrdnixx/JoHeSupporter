@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<appcfg>
+    <License>KSJHB-CNHWV-YNFDE-VXHZC</License>
+    <IconSize>30</IconSize>
+    <MailSrv>exch216.chaos.local</MailSrv>  
+    <MailPrt>587</MailPrt> 
+    <MailTLS>false</MailTLS> 
+    <UseUserMail>true</UseUserMail> 
+    <MailFrom>johesupporter@ulewu.de</MailFrom>
+    <MailTo>Jojo@ulewu.de</MailTo>
+    <UseMailAuth>true</UseMailAuth> 
+    <MailUsr>johesupporter</MailUsr>  
+    <MailPwd>johesupporterpassword</MailPwd> 
+    <AttachFile>%temp%\test1.txt</AttachFile>
+    <AttachFile>%temp%\test2.log</AttachFile>
+</appcfg>
+
+<!-- Options
+License:      Lizenzkey
+IconSize:     größe des Icons in Pixeln
+MailSrv:      Name oder IP des Mail Servers
+MailPrt:      Mail Server Port
+MailTLS:      Verwende TLS für die Mail Server Verbindung
+UseUserMail:  Verwende die User Mail als MailFrom, wenn eine angegeben wurde. An sonnsten wird die Adresse aus MailFrom verwendet. (Die Mail Adresse des
+              Users wird als ReplyTo Adresse in die Mail eingetragen)
+MailFrom:     Absender-Mail, wenn UseUserMail = false oder keine User Mail Adresse vorhanden
+MailTo:       Empfänger der Support Meldungen
+UseMailAuth:  Authentifizierung am Mailserver verwenden
+MailUsr:      User, der sich am Mail Server authentifizieren kann (normalerweise der User der die MailFrom Adresse hat.
+MailPwd:      Passwort des MailUsr
+AttachFile:   Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
+              Kann mehrfach angegeben werden um mehrere Dateien an zu hängen
+              Kann Variablen wie z.B. %temp% oder %AppData% enthalten.
+
+-->
+
+
+<!-- SKGL Licence information
+
+Copyright (c) 2011-2012, Artem Los
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

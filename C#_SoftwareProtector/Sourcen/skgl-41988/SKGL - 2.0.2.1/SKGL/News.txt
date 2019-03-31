@@ -1,0 +1,6 @@
+﻿RELEASE NOTES
+
+Improvments in SKGL Project (http://skgl.codeplex.com)
+Added an possibility to change the creation date
+Bug fix http://softwareprotector.codeplex.com/workitem/1344.
+Solution: The problem is as stated in the description, because of the different formant types for different languages.
