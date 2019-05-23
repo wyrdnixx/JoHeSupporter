@@ -11,8 +11,9 @@
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
     <MailPwd>johesupporterpassword</MailPwd>
-    <CustomIconFile>robot-icon.png</CustomIconFile>
+    <CustomIconFile></CustomIconFile>
     <EnablePrio>false</EnablePrio>
+    <PosOffset>175</PosOffset>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>
@@ -53,10 +54,14 @@ MailUsr:
 MailPwd:      
               Passwort des MailUsr
 CustomIconFile: 
-              Eine Bilddatei die als Icon Verwendet werden soll. Wenn nicht angegeben oder Datei nicht vorhanden, wird ein Default Icon genommen.
+              Eine Bilddatei die als Icon Verwendet werden soll. 
+              Beispiel: <CustomIconFile>iconfile.png</CustomIconFile>
+              Wenn nicht angegeben oder Datei nicht vorhanden, wird ein Default Icon genommen.
               Bitte ggf. Lizenzen der Bild / Icon Datei beachten.
 EnablePrio:   
               true oder false = Steuert, ob das Prioritätenfeld zur Auswahl angezeigt wird.
+PosOffset:  
+              Positions-Offset des Icons in Pixel vom rechten Fenterrand aus (Default 175 = unter Windows 10, je nach Auflösung, etwas links des Minimize Buttons eines Fensters)
 AttachFile:   
               Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
               Kann mehrfach angegeben werden um mehrere Dateien an zu hängen

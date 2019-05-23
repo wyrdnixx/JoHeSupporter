@@ -160,6 +160,16 @@ namespace JoHeSupporter
                         case "AttachFile":
                             _param.AppCfg_AttachFile.Add(element.InnerText);
                             break;
+                        case "PosOffset":
+                            int offset;
+                            bool res;
+                            res = int.TryParse(element.InnerText, out offset);
+                            if (res)
+                            {
+                                _param.AppCfg_PosOffset = offset;
+                            }
+                            else _param.AppCfg_PosOffset = 175;
+                            break;
                         case "CustomIconFile":
                             _param.AppCfg_CustomIconFile = element.InnerText;
                             break;

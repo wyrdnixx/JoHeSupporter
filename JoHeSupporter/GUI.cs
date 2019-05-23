@@ -208,18 +208,19 @@ namespace JoHeSupporter
                     if (_windTitle != "JoHeSupporter" && _windTitle != "" && _windTitle != null)
                     {
                         int[] wnd = GetActiveWindowPos();
-                       int leftPos = ((wnd[1] - wnd[0]) / 100 * param.PosOffset) + wnd[0];
+                   //    int leftPos = ((wnd[1] - wnd[0]) / 100 * param.PosOffset) + wnd[0];
 
                     // Versuch icon rechts an zu binden
-                    int rightPos = wnd[1] - 175;
+                    int rightPos = wnd[1] - param.AppCfg_PosOffset;
                     this.Left = rightPos;
 
 
-                    //
+                    /*
                     if (leftPos >= 20)
                     {
                         //this.Left = leftPos;
                     }
+                    */
                     this.Top = wnd[2];
                     this.TopMost = true;
                  //   Console.WriteLine("Title:" + _windTitle + "; + Left: " + leftPos);
