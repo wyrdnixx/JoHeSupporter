@@ -160,6 +160,12 @@ namespace JoHeSupporter
                         case "AttachFile":
                             _param.AppCfg_AttachFile.Add(element.InnerText);
                             break;
+                        case "CustomIconFile":
+                            _param.AppCfg_CustomIconFile = element.InnerText;
+                            break;
+                        case "EnablePrio":
+                            _param.AppCfg_EnablePrio = element.InnerText;
+                            break;
                     }
                 }
 

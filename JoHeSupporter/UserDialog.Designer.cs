@@ -34,10 +34,6 @@
             this.label_ContactName = new System.Windows.Forms.Label();
             this.textBox_ContactInfo = new System.Windows.Forms.TextBox();
             this.label__ContactInfo = new System.Windows.Forms.Label();
-            this.radio_prioLow = new System.Windows.Forms.RadioButton();
-            this.radio_prioNormal = new System.Windows.Forms.RadioButton();
-            this.radio_prioHigh = new System.Windows.Forms.RadioButton();
-            this.label_Prio = new System.Windows.Forms.Label();
             this.label_Description = new System.Windows.Forms.Label();
             this.textBox_description = new System.Windows.Forms.TextBox();
             this.button_sendReport = new System.Windows.Forms.Button();
@@ -45,6 +41,7 @@
             this.lbl_versionInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_tel = new System.Windows.Forms.TextBox();
+            this.check_HighPrio = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label_Hello
@@ -87,47 +84,6 @@
             this.label__ContactInfo.Size = new System.Drawing.Size(135, 13);
             this.label__ContactInfo.TabIndex = 2;
             this.label__ContactInfo.Text = "Mail des Ansprechpartners:";
-            // 
-            // radio_prioLow
-            // 
-            this.radio_prioLow.AutoSize = true;
-            this.radio_prioLow.Checked = true;
-            this.radio_prioLow.Location = new System.Drawing.Point(237, 163);
-            this.radio_prioLow.Name = "radio_prioLow";
-            this.radio_prioLow.Size = new System.Drawing.Size(58, 17);
-            this.radio_prioLow.TabIndex = 6;
-            this.radio_prioLow.TabStop = true;
-            this.radio_prioLow.Text = "Niedrig";
-            this.radio_prioLow.UseVisualStyleBackColor = true;
-            // 
-            // radio_prioNormal
-            // 
-            this.radio_prioNormal.AutoSize = true;
-            this.radio_prioNormal.Location = new System.Drawing.Point(310, 163);
-            this.radio_prioNormal.Name = "radio_prioNormal";
-            this.radio_prioNormal.Size = new System.Drawing.Size(58, 17);
-            this.radio_prioNormal.TabIndex = 7;
-            this.radio_prioNormal.Text = "Normal";
-            this.radio_prioNormal.UseVisualStyleBackColor = true;
-            // 
-            // radio_prioHigh
-            // 
-            this.radio_prioHigh.AutoSize = true;
-            this.radio_prioHigh.Location = new System.Drawing.Point(386, 163);
-            this.radio_prioHigh.Name = "radio_prioHigh";
-            this.radio_prioHigh.Size = new System.Drawing.Size(51, 17);
-            this.radio_prioHigh.TabIndex = 8;
-            this.radio_prioHigh.Text = "Hoch";
-            this.radio_prioHigh.UseVisualStyleBackColor = true;
-            // 
-            // label_Prio
-            // 
-            this.label_Prio.AutoSize = true;
-            this.label_Prio.Location = new System.Drawing.Point(12, 163);
-            this.label_Prio.Name = "label_Prio";
-            this.label_Prio.Size = new System.Drawing.Size(107, 13);
-            this.label_Prio.TabIndex = 2;
-            this.label_Prio.Text = "Priorität der Meldung:";
             // 
             // label_Description
             // 
@@ -192,11 +148,22 @@
             this.textBox_tel.Size = new System.Drawing.Size(200, 20);
             this.textBox_tel.TabIndex = 2;
             // 
+            // check_HighPrio
+            // 
+            this.check_HighPrio.AutoSize = true;
+            this.check_HighPrio.Location = new System.Drawing.Point(237, 163);
+            this.check_HighPrio.Name = "check_HighPrio";
+            this.check_HighPrio.Size = new System.Drawing.Size(144, 17);
+            this.check_HighPrio.TabIndex = 12;
+            this.check_HighPrio.Text = "Hohe Priorität / Dringend";
+            this.check_HighPrio.UseVisualStyleBackColor = true;
+            // 
             // UserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 491);
+            this.Controls.Add(this.check_HighPrio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox_tel);
             this.Controls.Add(this.lbl_versionInfo);
@@ -204,10 +171,6 @@
             this.Controls.Add(this.button_sendReport);
             this.Controls.Add(this.textBox_description);
             this.Controls.Add(this.label_Description);
-            this.Controls.Add(this.radio_prioHigh);
-            this.Controls.Add(this.radio_prioNormal);
-            this.Controls.Add(this.radio_prioLow);
-            this.Controls.Add(this.label_Prio);
             this.Controls.Add(this.label__ContactInfo);
             this.Controls.Add(this.label_ContactName);
             this.Controls.Add(this.textBox_ContactInfo);
@@ -233,10 +196,6 @@
         private System.Windows.Forms.Label label_ContactName;
         private System.Windows.Forms.TextBox textBox_ContactInfo;
         private System.Windows.Forms.Label label__ContactInfo;
-        private System.Windows.Forms.RadioButton radio_prioLow;
-        private System.Windows.Forms.RadioButton radio_prioNormal;
-        private System.Windows.Forms.RadioButton radio_prioHigh;
-        private System.Windows.Forms.Label label_Prio;
         private System.Windows.Forms.Label label_Description;
         private System.Windows.Forms.TextBox textBox_description;
         private System.Windows.Forms.Button button_sendReport;
@@ -244,5 +203,6 @@
         private System.Windows.Forms.Label lbl_versionInfo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_tel;
+        private System.Windows.Forms.CheckBox check_HighPrio;
     }
 }

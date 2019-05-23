@@ -2,15 +2,17 @@
 <appcfg>
     <License>KSJHB-CNHWV-YNFDE-VXHZC</License>
     <IconSize>30</IconSize>
-    <MailSrv>exch216.chaos.local</MailSrv>  
+    <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
     <MailTLS>false</MailTLS> 
-    <UseUserMail>false</UseUserMail> 
+    <UseUserMail>true</UseUserMail> 
     <MailFrom>johesupporter@ulewu.de</MailFrom>
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
-    <MailPwd>johesupporterpassword</MailPwd> 
+    <MailPwd>johesupporterpassword</MailPwd>
+    <CustomIconFile>robot-icon.png</CustomIconFile>
+    <EnablePrio>false</EnablePrio>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>
@@ -27,19 +29,36 @@ In den Dialog können Anwender eine kurze Fehlerbeschreibung eintragen und eine 
 ##############################
 
 Options
-License:      Lizenzkey
-IconSize:     größe des Icons in Pixeln
-MailSrv:      Name oder IP des Mail Servers
-MailPrt:      Mail Server Port
-MailTLS:      Verwende TLS für die Mail Server Verbindung
-UseUserMail:  Verwende die User Mail als MailFrom, wenn eine angegeben wurde. An sonnsten wird die Adresse aus MailFrom verwendet. (Die Mail Adresse des
+License:      
+              Lizenzkey
+IconSize:     
+              größe des Icons in Pixeln
+MailSrv:      
+              Name oder IP des Mail Servers
+MailPrt:      
+              Mail Server Port
+MailTLS:      
+              Verwende TLS für die Mail Server Verbindung
+UseUserMail:  
+              Verwende die User Mail als MailFrom, wenn eine angegeben wurde. An sonnsten wird die Adresse aus MailFrom verwendet. (Die Mail Adresse des
               Users wird als ReplyTo Adresse in die Mail eingetragen)
-MailFrom:     Absender-Mail, wenn UseUserMail = false oder keine User Mail Adresse vorhanden
-MailTo:       Empfänger der Support Meldungen
-UseMailAuth:  Authentifizierung am Mailserver verwenden
-MailUsr:      User, der sich am Mail Server authentifizieren kann (normalerweise der User der die MailFrom Adresse hat.
-MailPwd:      Passwort des MailUsr
-AttachFile:   Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
+MailFrom:     
+              Absender-Mail, wenn UseUserMail = false oder keine User Mail Adresse vorhanden
+MailTo:       
+              Empfänger der Support Meldungen
+UseMailAuth:  
+              Authentifizierung am Mailserver verwenden
+MailUsr:      
+              User, der sich am Mail Server authentifizieren kann (normalerweise der User der die MailFrom Adresse hat.
+MailPwd:      
+              Passwort des MailUsr
+CustomIconFile: 
+              Eine Bilddatei die als Icon Verwendet werden soll. Wenn nicht angegeben oder Datei nicht vorhanden, wird ein Default Icon genommen.
+              Bitte ggf. Lizenzen der Bild / Icon Datei beachten.
+EnablePrio:   
+              true oder false = Steuert, ob das Prioritätenfeld zur Auswahl angezeigt wird.
+AttachFile:   
+              Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
               Kann mehrfach angegeben werden um mehrere Dateien an zu hängen
               Kann Variablen wie z.B. %temp% oder %AppData% enthalten.
 
@@ -53,9 +72,16 @@ Die MailAdresse aus dem Dialog wird, wenn vorhanden, auf jeden Fall in der Mail 
 -> Auch wenn die Support Mail gesendet wird mit der MailFrom-Adresse gehen Antworten an den Anwender (ReplyTo).
 
 
-
 -->
 
+<!--
+Haftungsausschluss
+
+Die Software und Ihre Dokumentation wird "wie sie ist" und ohne jede Gewährleistung für Funktion, Korrektheit oder Fehlerfreiheit zur Verfügung gestellt.
+Für jedweden direkten oder indirekten Schaden - insbesondere Schaden an anderer Software, Schaden an Hardware, Schaden durch Nutzungsausfall und Schaden durch Funktionsuntüchtigkeit der Software, kann der Autor nicht haftbar gemacht werden. Ausschließlich der Benutzer haftet für die Folgen der Benutzung dieser Software.
+
+Diese Software wurde mit größter Sorgfalt entwickelt, jedoch können Fehler niemals ausgeschlossen werden. Es kann daher keine Gewähr für die Sicherheit Ihrer Daten übernommen werden.
+-->
 
 <!-- SKGL Licence information
 

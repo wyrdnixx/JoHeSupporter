@@ -28,6 +28,8 @@ namespace JoHeSupporter
         string appCfg_MailPwd;
         string appCfg_UseUserMail;
         string appCfg_UseMailAuth;
+        string appCfg_CustomIconFile;
+        string appCfg_EnablePrio;
         List<string> appCfg_AttachFile;
 
         public string screenshotfile = System.IO.Path.GetTempPath().ToString() + "JoHeSupporter.jpg";
@@ -36,7 +38,7 @@ namespace JoHeSupporter
 
         public param()
         {
-            PosOffset = 15;
+            PosOffset = 10;
             AppCfg_AttachFile = new List<string>();
             //Cfgxml = new XmlDocument();
         }
@@ -233,6 +235,32 @@ namespace JoHeSupporter
             set
             {
                 appCfg_UseMailAuth = value;
+            }
+        }
+
+        public string AppCfg_CustomIconFile
+        {
+            get
+            {
+                return appCfg_CustomIconFile;
+            }
+
+            set
+            {
+                appCfg_CustomIconFile = value;
+            }
+        }
+
+        public string AppCfg_EnablePrio
+        {
+            get
+            {
+                return appCfg_EnablePrio;
+            }
+
+            set
+            {
+                appCfg_EnablePrio = value;
             }
         }
     }

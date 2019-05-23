@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JoHeSupporter" version="1.7.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JoHeSupporter" version="1.8.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="JoHeSupporter.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -44,13 +44,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="363008">
-      <assemblyIdentity name="JoHeSupporter" version="1.7.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="JoHeSupporter" version="1.8.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ny9Bzs0ShfCERgy7wv3KdE0bM1mHkButsISVZDAlXEI=</dsig:DigestValue>
+        <dsig:DigestValue>QL0CsDhILvB0ATkG1xlqjWss32y+Ue2GjGp5KCHEWuE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,13 +66,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="config.xml" size="2990" writeableType="applicationData">
+  <file name="config.xml" size="5363" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>+mnxF8Q5A7lIO7yrKb0ExAhQQdnFlcmEsx4F1JOwE60=</dsig:DigestValue>
+      <dsig:DigestValue>t/DMvKky97cGbf/JiHfIsh5zgoRC18BQLK7iGkT/eds=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="119078">

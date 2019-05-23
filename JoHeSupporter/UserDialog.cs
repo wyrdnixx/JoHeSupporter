@@ -21,7 +21,16 @@ namespace JoHeSupporter
             // methodenObjekt übergeben
             Methods = _methods;
             Param = _param;
+                      
             InitializeComponent();
+
+            //Priorität in dem Userdialog zur Auswahl
+            if (Param.AppCfg_EnablePrio == "true")
+            {
+                this.check_HighPrio.Visible = true;
+            }
+            else this.check_HighPrio.Visible = false;
+
         }
 
         private void UserDialog_Load(object sender, EventArgs e)
@@ -88,7 +97,13 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             else
             {
                 // Description aus Fehlertext übernehmen und ggf. kürzen
-                string _descriptionShort = textBox_description.Text;
+                string _descriptionShort = "";
+                if (this.check_HighPrio.Checked) {
+                    _descriptionShort = "HIGH: ";
+                }
+
+                _descriptionShort = _descriptionShort + textBox_description.Text;
+
                 if (textBox_description.Text.Length >50)
                 {
                     _descriptionShort = textBox_description.Text.Substring(0, 50);
@@ -117,10 +132,16 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
         public string generateHTMLText()
         {
             string prio = "";
+            if(Param.AppCfg_EnablePrio == "true")
+            {
+                if (check_HighPrio.Checked)
+                {
+                    prio = "Priorität:      <b><u>HIGH</u></b>";
+                }
+                else prio = "Priorität:     Normal";
+            }
 
-            if (radio_prioHigh.Checked) prio = "<b><u>Hoch</u></b>";
-            if (radio_prioNormal.Checked) prio = "Normal";
-            if (radio_prioLow.Checked) prio = "Niedrig";
+            
 
             // Zeilenumbrüche in Fehlerbeschreibungstext durch HTML Zeilenumbrüche ersetzen
             string Description2HTML = textBox_description.Text.Replace(System.Environment.NewLine,"<br>");
@@ -130,23 +151,23 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
 
             string HTMLText = @"
                 
-            <h1>JoHeSupporter Meldung</h1>
+            <h3>JoHeSupporter Meldung</h3>
             <br>
-            <h2>Angaben des Meldenden:</h2>            
+            <h4>Angaben des Meldenden:</h4>            
             Ansprechpartner: " + textBox_ContactPerson.Text + @"
             <br>
             Kontakt Mail: " + textBox_ContactInfo.Text + @"
             <br>
             Kontakt Tel: " + textBox_tel.Text + @"
+            <br>"
+            + prio + @"
             <br>
-            Priorität: " + prio + @"
-            <br>
-            <h2>Fehlerbeschreibung:</h2>
+            <h4>Fehlerbeschreibung:</h4>
             " +
             Description2HTML + @"
             <br>
             <hr />
-            <h2>Systemangaben:</h2>
+            <h3>Systemangaben:</h3>
             USERNAME: " + Environment.GetEnvironmentVariable("USERNAME") + @" <br>
             USERDOMAIN: " + Environment.GetEnvironmentVariable("USERDOMAIN") + @" <br>
             COMPUTERNAME: " + Environment.GetEnvironmentVariable("COMPUTERNAME") + @" <br>

@@ -28,10 +28,25 @@ namespace JoHeSupporter
             this.MinimumSize = new System.Drawing.Size(16, 5);
             this.Size = new System.Drawing.Size(16, 5);
 
+
             methods = _methods;
             param = methods._Param;
 
-            
+            // setze CustomIcon, wenn vorhanden - ansonnsten nimm das Default
+            try
+            {
+                this.BackgroundImage = Image.FromFile
+                (AppDomain.CurrentDomain.BaseDirectory
+                + param.AppCfg_CustomIconFile);
+
+            }
+            catch (Exception)
+            {
+                this.BackgroundImage = global::JoHeSupporter.Properties.Resources.Icon;
+            }
+
+
+
 
             InitializeComponent();
 
@@ -193,11 +208,17 @@ namespace JoHeSupporter
                     if (_windTitle != "JoHeSupporter" && _windTitle != "" && _windTitle != null)
                     {
                         int[] wnd = GetActiveWindowPos();
-                        int leftPos = ((wnd[1] - wnd[0]) / 100 * param.PosOffset) + wnd[0];
+                       int leftPos = ((wnd[1] - wnd[0]) / 100 * param.PosOffset) + wnd[0];
 
+                    // Versuch icon rechts an zu binden
+                    int rightPos = wnd[1] - 175;
+                    this.Left = rightPos;
+
+
+                    //
                     if (leftPos >= 20)
                     {
-                        this.Left = leftPos;
+                        //this.Left = leftPos;
                     }
                     this.Top = wnd[2];
                     this.TopMost = true;
