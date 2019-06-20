@@ -39,8 +39,6 @@
             this.button_sendReport = new System.Windows.Forms.Button();
             this.button_Cancel = new System.Windows.Forms.Button();
             this.lbl_versionInfo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox_tel = new System.Windows.Forms.TextBox();
             this.check_HighPrio = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
@@ -49,9 +47,9 @@
             this.label_Hello.AutoSize = true;
             this.label_Hello.Location = new System.Drawing.Point(12, 28);
             this.label_Hello.Name = "label_Hello";
-            this.label_Hello.Size = new System.Drawing.Size(301, 13);
+            this.label_Hello.Size = new System.Drawing.Size(297, 13);
             this.label_Hello.TabIndex = 0;
-            this.label_Hello.Text = "Senden Sie eine Fehlermeldung per Mail an den EDV Support.";
+            this.label_Hello.Text = "Senden Sie eine Fehlermeldung per Mail an den IT-Helpdesk.";
             // 
             // textBox_ContactPerson
             // 
@@ -65,9 +63,9 @@
             this.label_ContactName.AutoSize = true;
             this.label_ContactName.Location = new System.Drawing.Point(12, 95);
             this.label_ContactName.Name = "label_ContactName";
-            this.label_ContactName.Size = new System.Drawing.Size(198, 13);
+            this.label_ContactName.Size = new System.Drawing.Size(143, 13);
             this.label_ContactName.TabIndex = 2;
-            this.label_ContactName.Text = "Ihr Name / Name des Anpsrechpartners:";
+            this.label_ContactName.Text = "Kontakt Name und/oder Tel.";
             // 
             // textBox_ContactInfo
             // 
@@ -88,7 +86,7 @@
             // label_Description
             // 
             this.label_Description.AutoSize = true;
-            this.label_Description.Location = new System.Drawing.Point(15, 200);
+            this.label_Description.Location = new System.Drawing.Point(12, 158);
             this.label_Description.Name = "label_Description";
             this.label_Description.Size = new System.Drawing.Size(420, 26);
             this.label_Description.TabIndex = 6;
@@ -97,15 +95,15 @@
             // 
             // textBox_description
             // 
-            this.textBox_description.Location = new System.Drawing.Point(18, 239);
+            this.textBox_description.Location = new System.Drawing.Point(18, 197);
             this.textBox_description.Multiline = true;
             this.textBox_description.Name = "textBox_description";
-            this.textBox_description.Size = new System.Drawing.Size(417, 157);
+            this.textBox_description.Size = new System.Drawing.Size(417, 199);
             this.textBox_description.TabIndex = 3;
             // 
             // button_sendReport
             // 
-            this.button_sendReport.Location = new System.Drawing.Point(41, 438);
+            this.button_sendReport.Location = new System.Drawing.Point(41, 421);
             this.button_sendReport.Name = "button_sendReport";
             this.button_sendReport.Size = new System.Drawing.Size(125, 23);
             this.button_sendReport.TabIndex = 4;
@@ -115,7 +113,7 @@
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(269, 438);
+            this.button_Cancel.Location = new System.Drawing.Point(265, 421);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(125, 23);
             this.button_Cancel.TabIndex = 5;
@@ -132,26 +130,10 @@
             this.lbl_versionInfo.TabIndex = 10;
             this.lbl_versionInfo.Text = "JoHeSupporter: v_INFO";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Tel. / Durchwahl für ggf. Rückruf";
-            // 
-            // textBox_tel
-            // 
-            this.textBox_tel.Location = new System.Drawing.Point(237, 129);
-            this.textBox_tel.Name = "textBox_tel";
-            this.textBox_tel.Size = new System.Drawing.Size(200, 20);
-            this.textBox_tel.TabIndex = 2;
-            // 
             // check_HighPrio
             // 
             this.check_HighPrio.AutoSize = true;
-            this.check_HighPrio.Location = new System.Drawing.Point(237, 163);
+            this.check_HighPrio.Location = new System.Drawing.Point(237, 129);
             this.check_HighPrio.Name = "check_HighPrio";
             this.check_HighPrio.Size = new System.Drawing.Size(144, 17);
             this.check_HighPrio.TabIndex = 12;
@@ -162,10 +144,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 491);
+            this.ClientSize = new System.Drawing.Size(461, 469);
             this.Controls.Add(this.check_HighPrio);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox_tel);
             this.Controls.Add(this.lbl_versionInfo);
             this.Controls.Add(this.button_Cancel);
             this.Controls.Add(this.button_sendReport);
@@ -201,8 +181,6 @@
         private System.Windows.Forms.Button button_sendReport;
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.Label lbl_versionInfo;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox_tel;
         private System.Windows.Forms.CheckBox check_HighPrio;
     }
 }

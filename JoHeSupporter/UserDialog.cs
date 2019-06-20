@@ -81,18 +81,19 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
         {
 
             
-            if (textBox_ContactPerson.Text == "" || textBox_description.Text == "")
+            if (textBox_description.Text == "")
             {   
-                MessageBox.Show("Füllen Sie bitte die erforderlichen Felder aus.","JoHeSupporter");
-
-                if (textBox_ContactPerson.Text == "") textBox_ContactPerson.BackColor = Color.IndianRed;                
+                MessageBox.Show("Füllen Sie bitte die erforderlichen Felder aus.","JoHeSupporter");                
                 if (textBox_description.Text == "") textBox_description.BackColor = Color.IndianRed;
 
-            } else if (textBox_tel.Text == "" && textBox_ContactInfo.Text == "")
-            {
+            }  else if (textBox_ContactInfo.Text == "")
+             {
                 MessageBox.Show("Füllen Sie bitte die erforderlichen Felder aus.", "JoHeSupporter");
-                if (textBox_ContactInfo.Text == "") textBox_ContactInfo.BackColor = Color.IndianRed;
-                if (textBox_tel.Text == "") textBox_tel.BackColor = Color.IndianRed;
+                if (textBox_ContactInfo.Text == "") textBox_ContactInfo.BackColor = Color.IndianRed;                
+            } else if (Param.AppCfg_ContactMandatory == "true" && textBox_ContactPerson.Text == "")
+            {
+                textBox_ContactPerson.BackColor = Color.IndianRed;
+                MessageBox.Show("Füllen Sie bitte die erforderlichen Felder aus.", "JoHeSupporter");
             }
             else
             {
@@ -112,8 +113,7 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
 
                 // Dialog Textobjekte deaktivieren, damit ersichtlich ist, dass geklickt wurde.
 
-                textBox_ContactInfo.Enabled = false;
-                textBox_tel.Enabled = false;
+                textBox_ContactInfo.Enabled = false;                
                 textBox_ContactPerson.Enabled = false;
                 textBox_description.Enabled = false;
 
@@ -157,8 +157,7 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             Ansprechpartner: " + textBox_ContactPerson.Text + @"
             <br>
             Kontakt Mail: " + textBox_ContactInfo.Text + @"
-            <br>
-            Kontakt Tel: " + textBox_tel.Text + @"
+            <br>            
             <br>"
             + prio + @"
             <br>

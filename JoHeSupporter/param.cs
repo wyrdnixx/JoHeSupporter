@@ -30,6 +30,7 @@ namespace JoHeSupporter
         string appCfg_UseMailAuth;
         string appCfg_CustomIconFile;
         string appCfg_EnablePrio;
+        string appCfg_ContactMandatory;
         int appCfg_PosOffset;
         List<string> appCfg_AttachFile;
 
@@ -275,6 +276,19 @@ namespace JoHeSupporter
             set
             {
                 appCfg_PosOffset = value;
+            }
+        }
+
+        public string AppCfg_ContactMandatory
+        {
+            get
+            {
+                return appCfg_ContactMandatory;
+            }
+
+            set
+            {
+                appCfg_ContactMandatory = value;
             }
         }
     }

@@ -5,14 +5,15 @@
     <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
     <MailTLS>false</MailTLS> 
-    <UseUserMail>true</UseUserMail> 
+    <UseUserMail>false</UseUserMail> 
     <MailFrom>johesupporter@ulewu.de</MailFrom>
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
     <MailPwd>johesupporterpassword</MailPwd>
     <CustomIconFile></CustomIconFile>
-    <EnablePrio>false</EnablePrio>
+    <EnablePrio>true</EnablePrio>
+    <ContactMandatory>true</ContactMandatory>
     <PosOffset>175</PosOffset>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
@@ -60,6 +61,8 @@ CustomIconFile:
               Bitte ggf. Lizenzen der Bild / Icon Datei beachten.
 EnablePrio:   
               true oder false = Steuert, ob das Prioritätenfeld zur Auswahl angezeigt wird.
+ContactMandatory:
+              Kontaktfeld als Pflichtfeld. Wenn "true", dann muss etwas in das Feld Kontakt eingetragen werden um eine Meldung ab zu schicken.
 PosOffset:  
               Positions-Offset des Icons in Pixel vom rechten Fenterrand aus (Default 175 = unter Windows 10, je nach Auflösung, etwas links des Minimize Buttons eines Fensters)
 AttachFile:   

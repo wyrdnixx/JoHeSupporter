@@ -176,6 +176,9 @@ namespace JoHeSupporter
                         case "EnablePrio":
                             _param.AppCfg_EnablePrio = element.InnerText;
                             break;
+                        case "ContactMandatory":
+                            _param.AppCfg_ContactMandatory = element.InnerText;
+                            break;
                     }
                 }
 
