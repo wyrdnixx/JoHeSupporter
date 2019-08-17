@@ -120,6 +120,10 @@
     <EmbeddedResource Include="UserDialog.resx">
       <DependentUpon>UserDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="InfoDoku.docx" />
+    <None Include="InfoDoku.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="JoHeSupporter_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

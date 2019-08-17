@@ -37,8 +37,23 @@ namespace JoHeSupporter
         {
             lbl_versionInfo.Text = "JoHeSupporter v" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             textBox_ContactInfo.Text = Param.UserMail;
+
+            linkLabel_InfoURL.Text = Param.AppCfg_infoLinkText;
+
         }
 
+        private void linkLabel_InfoURL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(Param.AppCfg_infoLinkURL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim öffnen des Info-Link. \n" + ex.Message);                
+            }
+
+        }
 
         private void UserDialog_HelpButtonClicked(Object sender, CancelEventArgs e)
 
@@ -180,5 +195,7 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             return HTMLText;
 
         }
+
+
     }
 }

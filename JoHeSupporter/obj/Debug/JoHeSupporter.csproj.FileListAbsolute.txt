@@ -12,3 +12,4 @@ D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\De
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.exe.manifest
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.application
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Debug\SKGL.dll
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Debug\InfoDoku.pdf

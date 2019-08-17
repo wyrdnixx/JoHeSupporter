@@ -160,6 +160,12 @@ namespace JoHeSupporter
                         case "AttachFile":
                             _param.AppCfg_AttachFile.Add(element.InnerText);
                             break;
+                        case "InfoLinkURL":
+                            _param.AppCfg_infoLinkURL= element.InnerText;
+                            break;
+                        case "InfoLinkText":
+                            _param.AppCfg_infoLinkText = element.InnerText;
+                            break;
                         case "PosOffset":
                             int offset;
                             bool res;

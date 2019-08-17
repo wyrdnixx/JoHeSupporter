@@ -1,19 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <appcfg>
     <License>KSJHB-CNHWV-YNFDE-VXHZC</License>
-    <IconSize>100</IconSize>
+    <IconSize>30</IconSize>
     <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
     <MailTLS>false</MailTLS> 
-    <UseUserMail>true</UseUserMail> 
+    <UseUserMail>false</UseUserMail> 
     <MailFrom>johesupporter@ulewu.de</MailFrom>
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
     <MailPwd>johesupporterpassword</MailPwd>
-    <CustomIconFile>icon.png</CustomIconFile>
-    <EnablePrio>false</EnablePrio>
+    <CustomIconFile></CustomIconFile>
+    <EnablePrio>true</EnablePrio>
+    <ContactMandatory>true</ContactMandatory>
     <PosOffset>175</PosOffset>
+    <InfoLinkText>Weitere Informationen</InfoLinkText>
+    <InfoLinkURL>.\InfoFile.pdf</InfoLinkURL>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>
@@ -54,17 +57,24 @@ MailUsr:
 MailPwd:      
               Passwort des MailUsr
 CustomIconFile: 
-              Eine Bilddatei die als Icon Verwendet werden soll. Wenn nicht angegeben oder Datei nicht vorhanden, wird ein Default Icon genommen.
+              Eine Bilddatei die als Icon Verwendet werden soll. 
+              Beispiel: <CustomIconFile>iconfile.png</CustomIconFile>
+              Wenn nicht angegeben oder Datei nicht vorhanden, wird ein Default Icon genommen.
               Bitte ggf. Lizenzen der Bild / Icon Datei beachten.
 EnablePrio:   
               true oder false = Steuert, ob das Prioritätenfeld zur Auswahl angezeigt wird.
+ContactMandatory:
+              Kontaktfeld als Pflichtfeld. Wenn "true", dann muss etwas in das Feld Kontakt eingetragen werden um eine Meldung ab zu schicken.
 PosOffset:  
               Positions-Offset des Icons in Pixel vom rechten Fenterrand aus (Default 175 = unter Windows 10, je nach Auflösung, etwas links des Minimize Buttons eines Fensters)
 AttachFile:   
               Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
               Kann mehrfach angegeben werden um mehrere Dateien an zu hängen
               Kann Variablen wie z.B. %temp% oder %AppData% enthalten.
-
+InfoLinkText: 
+			  Text, der unter der JoHeSupporter Version angezeigt wird und als Link angeklickt werden kann
+InfoLinkURL:
+			  Ziel, dass Mit dem Info-Link aufgerufen wird. Kann eine Datei im Programmverzeichniss sein (z.B. ".\Info.pdf") oder ein Web-Link
 
 Infos:
 Wenn UseUserMail true ist, wird die Mail-Adresse aus dem Dialog als Absender Mail verwendet. Dies ist nur möglich, wenn der MailUsr die Berechtigung hat

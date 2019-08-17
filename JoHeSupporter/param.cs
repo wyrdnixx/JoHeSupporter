@@ -31,6 +31,9 @@ namespace JoHeSupporter
         string appCfg_CustomIconFile;
         string appCfg_EnablePrio;
         string appCfg_ContactMandatory;
+        string appCfg_infoLinkText;
+        string appCfg_infoLinkURL;
+
         int appCfg_PosOffset;
         List<string> appCfg_AttachFile;
 
@@ -289,6 +292,32 @@ namespace JoHeSupporter
             set
             {
                 appCfg_ContactMandatory = value;
+            }
+        }
+
+        public string AppCfg_infoLinkText
+        {
+            get
+            {
+                return appCfg_infoLinkText;
+            }
+
+            set
+            {
+                appCfg_infoLinkText = value;
+            }
+        }
+
+        public string AppCfg_infoLinkURL
+        {
+            get
+            {
+                return appCfg_infoLinkURL;
+            }
+
+            set
+            {
+                appCfg_infoLinkURL = value;
             }
         }
     }

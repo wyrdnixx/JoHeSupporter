@@ -15,6 +15,8 @@
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
     <PosOffset>175</PosOffset>
+    <InfoLinkText>Weitere Informationen</InfoLinkText>
+    <InfoLinkURL>.\InfoDoku.pdf</InfoLinkURL>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>
@@ -69,7 +71,10 @@ AttachFile:
               Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
               Kann mehrfach angegeben werden um mehrere Dateien an zu hängen
               Kann Variablen wie z.B. %temp% oder %AppData% enthalten.
-
+InfoLinkText: 
+			  Text, der unter der JoHeSupporter Version angezeigt wird und als Link angeklickt werden kann
+InfoLinkURL:
+			  Ziel, dass Mit dem Info-Link aufgerufen wird. Kann eine Datei im Programmverzeichniss sein (z.B. ".\Info.pdf") oder ein Web-Link
 
 Infos:
 Wenn UseUserMail true ist, wird die Mail-Adresse aus dem Dialog als Absender Mail verwendet. Dies ist nur möglich, wenn der MailUsr die Berechtigung hat

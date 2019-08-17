@@ -40,6 +40,9 @@
             this.button_Cancel = new System.Windows.Forms.Button();
             this.lbl_versionInfo = new System.Windows.Forms.Label();
             this.check_HighPrio = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.linkLabel_InfoURL = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label_Hello
@@ -86,7 +89,7 @@
             // label_Description
             // 
             this.label_Description.AutoSize = true;
-            this.label_Description.Location = new System.Drawing.Point(12, 158);
+            this.label_Description.Location = new System.Drawing.Point(12, 149);
             this.label_Description.Name = "label_Description";
             this.label_Description.Size = new System.Drawing.Size(420, 26);
             this.label_Description.TabIndex = 6;
@@ -95,15 +98,15 @@
             // 
             // textBox_description
             // 
-            this.textBox_description.Location = new System.Drawing.Point(18, 197);
+            this.textBox_description.Location = new System.Drawing.Point(18, 178);
             this.textBox_description.Multiline = true;
             this.textBox_description.Name = "textBox_description";
-            this.textBox_description.Size = new System.Drawing.Size(417, 199);
+            this.textBox_description.Size = new System.Drawing.Size(417, 183);
             this.textBox_description.TabIndex = 3;
             // 
             // button_sendReport
             // 
-            this.button_sendReport.Location = new System.Drawing.Point(41, 421);
+            this.button_sendReport.Location = new System.Drawing.Point(42, 434);
             this.button_sendReport.Name = "button_sendReport";
             this.button_sendReport.Size = new System.Drawing.Size(125, 23);
             this.button_sendReport.TabIndex = 4;
@@ -113,7 +116,7 @@
             // 
             // button_Cancel
             // 
-            this.button_Cancel.Location = new System.Drawing.Point(265, 421);
+            this.button_Cancel.Location = new System.Drawing.Point(273, 434);
             this.button_Cancel.Name = "button_Cancel";
             this.button_Cancel.Size = new System.Drawing.Size(125, 23);
             this.button_Cancel.TabIndex = 5;
@@ -140,11 +143,45 @@
             this.check_HighPrio.Text = "Hohe Priorität / Dringend";
             this.check_HighPrio.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 392);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(415, 39);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Wenn Sie auf \"Fehlerbericht senden\" klicken wird auch dieser Screenshot übertrage" +
+    "n.\r\nWenn Sie dies nicht wünschen brechen Sie den Vorgang bitte ab.\r\n\r\n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 368);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(343, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Beim Klicken auf das Icon wurde ein Bildschirmfoto erstellt.";
+            // 
+            // linkLabel_InfoURL
+            // 
+            this.linkLabel_InfoURL.AutoSize = true;
+            this.linkLabel_InfoURL.Location = new System.Drawing.Point(326, 13);
+            this.linkLabel_InfoURL.Name = "linkLabel_InfoURL";
+            this.linkLabel_InfoURL.Size = new System.Drawing.Size(55, 13);
+            this.linkLabel_InfoURL.TabIndex = 16;
+            this.linkLabel_InfoURL.TabStop = true;
+            this.linkLabel_InfoURL.Text = "linkLabel1";
+            this.linkLabel_InfoURL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_InfoURL_LinkClicked);
+            // 
             // UserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 469);
+            this.Controls.Add(this.linkLabel_InfoURL);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.check_HighPrio);
             this.Controls.Add(this.lbl_versionInfo);
             this.Controls.Add(this.button_Cancel);
@@ -182,5 +219,8 @@
         private System.Windows.Forms.Button button_Cancel;
         private System.Windows.Forms.Label lbl_versionInfo;
         private System.Windows.Forms.CheckBox check_HighPrio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel linkLabel_InfoURL;
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <appcfg>
-    <License>MJXBC-GLTTX-YTZUD-YLQON</License>
+    <License>KSJHB-CNHWV-YNFDE-VXHZC</License>
     <IconSize>30</IconSize>
-    <MailSrv>MAILSERVER.FQDN</MailSrv>  
+    <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
     <MailTLS>false</MailTLS> 
     <UseUserMail>false</UseUserMail> 
@@ -10,17 +10,18 @@
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
-    <MailPwd>P@ssw0rd</MailPwd>
-    <CustomIconFile>test-icon.png</CustomIconFile>
+    <MailPwd>johesupporterpassword</MailPwd>
+    <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
     <PosOffset>175</PosOffset>
+    <InfoLinkText>Weitere Informationen</InfoLinkText>
+    <InfoLinkURL>.\InfoDoku.pdf</InfoLinkURL>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>
 
 <!-- 
-<License>KSJHB-CNHWV-YNFDE-VXHZC</License>
 
 JoHeSupporter:
 Icon, das in der Titelzeile des aktiven Fensters liegt. Über einen Klick auf das Icon wird ein Screenshot erstellt und ein User-Dialog angezeigt.
@@ -70,7 +71,10 @@ AttachFile:
               Datei auf dem Filesystem, das an die Mail angehängt werden soll (Logfiles etc). 
               Kann mehrfach angegeben werden um mehrere Dateien an zu hängen
               Kann Variablen wie z.B. %temp% oder %AppData% enthalten.
-
+InfoLinkText: 
+			  Text, der unter der JoHeSupporter Version angezeigt wird und als Link angeklickt werden kann
+InfoLinkURL:
+			  Ziel, dass Mit dem Info-Link aufgerufen wird. Kann eine Datei im Programmverzeichniss sein (z.B. ".\Info.pdf") oder ein Web-Link
 
 Infos:
 Wenn UseUserMail true ist, wird die Mail-Adresse aus dem Dialog als Absender Mail verwendet. Dies ist nur möglich, wenn der MailUsr die Berechtigung hat
