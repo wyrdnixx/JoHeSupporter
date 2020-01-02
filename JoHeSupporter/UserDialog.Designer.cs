@@ -206,8 +206,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
+        
         private System.Windows.Forms.Label label_Hello;
         private System.Windows.Forms.TextBox textBox_ContactPerson;
         private System.Windows.Forms.Label label_ContactName;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -37,20 +38,26 @@ namespace JoHeSupporter
                 MessageBox.Show("Programm wurde mit zu vielen Parametern gestartet. \nBitte nur die Konfigurationsdatei als Argument angeben.", "JoheSupporter");
                 System.Environment.Exit(1);
             }
-            
 
-            
 
-            methods methods = new methods(param);
-
-            param.UserMail = methods.getUserMail();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
+
+            //MessageBanner msgBanner = new MessageBanner();
+            //new Thread(() => new MessageBanner().ShowDialog()).Start();
+            new Thread(() => Application.Run(new MessageBanner())).Start();
+
+
+            methods methods = new methods(param);
+            param.UserMail = methods.getUserMail();
+                        
             Application.Run(new GUI(methods));
 
-            
-                        
+       
+
         }
     }
 }

@@ -13,3 +13,5 @@ D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Re
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.pdb
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\SKGL.dll
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\InfoDoku.pdf
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.MessageBanner.resources
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\MessageBanner.txt

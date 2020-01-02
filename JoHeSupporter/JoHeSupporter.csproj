@@ -94,6 +94,12 @@
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="license.cs" />
+    <Compile Include="MessageBanner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageBanner.Designer.cs">
+      <DependentUpon>MessageBanner.cs</DependentUpon>
+    </Compile>
     <Compile Include="methods.cs" />
     <Compile Include="param.cs" />
     <Compile Include="Program.cs" />
@@ -106,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MessageBanner.resx">
+      <DependentUpon>MessageBanner.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -144,6 +153,9 @@
   <ItemGroup>
     <Content Include="config.xml" />
     <Content Include="Icon.ico" />
+    <Content Include="MessageBanner.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -1,0 +1,18 @@
+﻿#######################################
+# MessageBanner Datei für JoHeSupporter
+#
+# (c) 2020 Johannes Hehn 
+#######################################
+#
+# Zeige Info oder Alarmmeldungen am Bildschirm
+#
+# Beispielzeile:
+# Info: 5 : Dies ist eine Info-Meldung
+# [Typ]: [Intervall] : [Text]
+# Typ = Info, Warning oder Resolved
+# Intervall = Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll -> z.B.: 1800 = 30 minuten; 900 = 15 Minuten
+# -> Nur die letzte Zeile ohne Kommentareichen wird angewendet
+
+#Info: 15 : Dies ist eine Info-Meldung
+#Warning: 1 : Warnungstext
+#Resolved: 5 : Gelöst
