@@ -373,6 +373,8 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             //MessageBox.Show(sender.ToString());
             try
             {
+                
+
                 System.Environment.Exit(0);
                 //Application.Exit();
                 
@@ -385,4 +387,6 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
         }
         #endregion Kontextmenüs
     }
+
+
 }

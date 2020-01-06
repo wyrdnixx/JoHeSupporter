@@ -48,7 +48,7 @@ namespace JoHeSupporter
 
             //MessageBanner msgBanner = new MessageBanner();
             //new Thread(() => new MessageBanner().ShowDialog()).Start();
-            new Thread(() => Application.Run(new MessageBanner())).Start();
+             new Thread(() => Application.Run(new MessageBanner())).Start();
 
 
             methods methods = new methods(param);
@@ -59,5 +59,7 @@ namespace JoHeSupporter
        
 
         }
+
+
     }
 }

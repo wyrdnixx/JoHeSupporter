@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.IO;
 
 namespace JoHeSupporter
 {
     public partial class MessageBanner : Form
     {
 
-        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        static System.Windows.Forms.Timer bannerUpdateTimer = new System.Windows.Forms.Timer();
+        static System.Windows.Forms.Timer bannerScrollingTimer = new System.Windows.Forms.Timer();
 
         // nur für die While-Schleife des Timers
         static bool exitFlag = false;
@@ -27,7 +29,7 @@ namespace JoHeSupporter
         static string MessageText;
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
-        static int DefaultIntervall = 60;
+        static int DefaultIntervall = 3;
         static int Intervall;
 
         public MessageBanner()
@@ -68,27 +70,53 @@ namespace JoHeSupporter
             this.Top = 0;
             this.Left = 0;
             //this.Width = ;
-            this.Size = new Size(SystemInformation.VirtualScreen.Width, 20);
-            this.lbl_CloseBanner.Top = 3;
+
+            int heigth = SystemInformation.VirtualScreen.Height / 120;
+
+            //MessageBox.Show("Heigth: " + heigth);
+
+            this.Size = new Size(SystemInformation.VirtualScreen.Width, heigth /2);
+          /*  this.lbl_CloseBanner.Top = 3;
             this.lbl_CloseBanner.Left = 3;
+            this.lbl_CloseBanner.Font = new Font("Arial", heigth * 2, FontStyle.Bold);*/
             this.ShowInTaskbar = false;
 
             this.lbl_MessageText.Top = 3;
             this.lbl_MessageText.Left = 40;
-            this.lbl_MessageText.Font = new Font("Arial", 20, FontStyle.Bold);
+            this.lbl_MessageText.Font = new Font("Arial", heigth*2, FontStyle.Bold);
+
+            this.btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            this.btnClose.BackgroundImage = JoHeSupporter.Properties.Resources.close_icon;
             
+            this.btnClose.FlatStyle = FlatStyle.Flat;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.BackColor = Color.Transparent;
+            this.btnClose.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.btnClose.FlatAppearance.MouseOverBackColor = Color.Transparent;
+
+
+            
+
+            this.btnClose.Left = 0;
+            this.btnClose.Top = 0;
+            this.btnClose.Width = heigth * 3;
+            this.btnClose.Height = heigth * 3;
+
             readBannerFile();
             
         }
 
         private void startTimer(int _seconds)
         {
-            myTimer.Tick += new EventHandler(TimerEventProcessor);
+            bannerUpdateTimer.Tick += new EventHandler(bannerUpdateTimerEvent);
 
             // Sets the timer interval to 5 seconds.
             int mlseconds = _seconds * 1000;
-            myTimer.Interval = mlseconds;
-            myTimer.Start();
+            bannerUpdateTimer.Interval = mlseconds;
+            bannerUpdateTimer.Start();
+
+            
+
 
             // Runs the timer, and raises the event.
             while (exitFlag == false)
@@ -99,7 +127,7 @@ namespace JoHeSupporter
 
         }
 
-        private void TimerEventProcessor(Object myObject,
+        private void bannerUpdateTimerEvent(Object myObject,
                                             EventArgs myEventArgs)
         {
 
@@ -109,12 +137,44 @@ namespace JoHeSupporter
             if (!this.Visible && MessageBannerFound)
             {
                 this.Visible = true;
+            
             }
 
-            
+            // wenn der Banner länger als die Bildschirmbreite ist...
+            if (this.lbl_MessageText.Width > SystemInformation.VirtualScreen.Width)
+            {
+                // Wenn der Scrolling-Timer nicht schon läuft (wird sonnst doppelt gestartet)
+                if (bannerScrollingTimer.Enabled == false)
+                {
+                    bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
+                    bannerScrollingTimer.Interval = 100;
+                    bannerScrollingTimer.Start();
+                }
+                
+            }
+            else { this.lbl_MessageText.Left = 40; bannerScrollingTimer.Stop(); }
+
 
         }
         
+        private void bannerScrollingTimerEvent(Object myObject,
+                                            EventArgs myEventArgs)
+        {
+                // Scrollen
+                this.lbl_MessageText.Left = this.lbl_MessageText.Left - 3;
+            
+            // wenn der Banner ganz links angekommen ist, dann wieder ganz rechts anfangen..
+            if (this.lbl_MessageText.Right <= 0)
+            {
+                this.lbl_MessageText.Left = SystemInformation.VirtualScreen.Width;
+            }
+
+
+
+
+
+        }
+
 
         private void readBannerFile()
         {
@@ -122,8 +182,15 @@ namespace JoHeSupporter
             // MessageBannerFound Variable zurück setzen;
             MessageBannerFound = false;
 
+                        
+            StreamReader file =  new StreamReader(File.Open(AppDomain.CurrentDomain.BaseDirectory + "MessageBanner.txt",
+                           FileMode.Open,
+                           FileAccess.Read,
+                           FileShare.ReadWrite));
+            // System.IO.StreamReader file = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory + "MessageBanner.txt");
+
             string line;
-            System.IO.StreamReader file = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory + "MessageBanner.txt");
+            
             while ((line = file.ReadLine()) != null)
             {
                 if (line.StartsWith("Info: ") || line.StartsWith("Warning: ") || line.StartsWith("Resolved: "))
@@ -147,7 +214,7 @@ namespace JoHeSupporter
 
                     if (line.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
                     if (line.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
-                    if (line.StartsWith("Resolve: ")) { this.BackColor = Color.LightGreen; }
+                    if (line.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
                 }                
             }
             file.Close();
@@ -156,7 +223,7 @@ namespace JoHeSupporter
             resetTimer();
         }
 
-        private void lbl_CloseBanner_Click(object sender, EventArgs e)
+     /*   private void lbl_CloseBanner_Click(object sender, EventArgs e)
         {
 
 
@@ -165,18 +232,30 @@ namespace JoHeSupporter
             //Verstecke das Fenster, solange der Timer nicht das nächste mal anschlägt
             this.Visible = false;
             resetTimer();
+            bannerScrollingTimer.Stop();
 
-        }
+        } */
 
         private void resetTimer()
         {
 
             // Timer reseten, damit er bei 0 anfängt
-            myTimer.Stop();
+            bannerUpdateTimer.Stop();
             // Aktualisiere das Intervall - wurde evtl. durch Meldungszeile aktualisiert.
-            myTimer.Interval = Intervall;
-            myTimer.Start();
+            bannerUpdateTimer.Interval = Intervall;
+            bannerUpdateTimer.Start();
 
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            readBannerFile();
+
+            //Verstecke das Fenster, solange der Timer nicht das nächste mal anschlägt
+            this.Visible = false;
+            resetTimer();
+            bannerScrollingTimer.Stop();
         }
     }
 
