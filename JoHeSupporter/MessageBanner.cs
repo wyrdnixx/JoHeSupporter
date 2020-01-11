@@ -71,11 +71,11 @@ namespace JoHeSupporter
             this.Left = 0;
             //this.Width = ;
 
-            int heigth = SystemInformation.VirtualScreen.Height / 120;
+            int heigth = (SystemInformation.VirtualScreen.Height / 100);
 
-            //MessageBox.Show("Heigth: " + heigth);
+            // MessageBox.Show("Heigth: " + heigth);
 
-            this.Size = new Size(SystemInformation.VirtualScreen.Width, heigth /2);
+            this.Size = new Size(SystemInformation.VirtualScreen.Width, heigth );
           /*  this.lbl_CloseBanner.Top = 3;
             this.lbl_CloseBanner.Left = 3;
             this.lbl_CloseBanner.Font = new Font("Arial", heigth * 2, FontStyle.Bold);*/
@@ -83,7 +83,13 @@ namespace JoHeSupporter
 
             this.lbl_MessageText.Top = 3;
             this.lbl_MessageText.Left = 40;
-            this.lbl_MessageText.Font = new Font("Arial", heigth*2, FontStyle.Bold);
+            //  this.lbl_MessageText.Font = new Font("Arial", heigth, FontStyle.Bold);
+
+            //this.lbl_MessageText.Font = new Font("Arial", this.Width/ 8);
+            this.lbl_MessageText.Font = new Font("Arial", this.Height / 2);
+
+            //MessageBox.Show("Heigth: " + this.lbl_MessageText.Font.Height);
+
 
             this.btnClose.BackgroundImageLayout = ImageLayout.Stretch;
             this.btnClose.BackgroundImage = JoHeSupporter.Properties.Resources.close_icon;
@@ -99,8 +105,8 @@ namespace JoHeSupporter
 
             this.btnClose.Left = 0;
             this.btnClose.Top = 0;
-            this.btnClose.Width = heigth * 3;
-            this.btnClose.Height = heigth * 3;
+            this.btnClose.Width = this.Size.Height;
+            this.btnClose.Height = this.Size.Height;
 
             readBannerFile();
             
