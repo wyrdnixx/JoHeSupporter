@@ -16,7 +16,7 @@
     <ContactMandatory>true</ContactMandatory>
     <PosOffset>175</PosOffset>
     <InfoLinkText>Weitere Informationen</InfoLinkText>
-    <InfoLinkURL>.\InfoFile.pdf</InfoLinkURL>
+    <InfoLinkURL>.\InfoDoku.pdf</InfoLinkURL>
     <AttachFile>%temp%\test1.txt</AttachFile>
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>

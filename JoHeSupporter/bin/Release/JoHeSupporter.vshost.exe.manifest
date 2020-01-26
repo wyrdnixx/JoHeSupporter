@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zLL4vVreFHfIVPOwH42SxB/16zC0VWQz+w0vh6Wz3DU=</dsig:DigestValue>
+        <dsig:DigestValue>Ao7ajcVGblQeMgLyoWa6ZdhylmJxZ7afQNJ7BFs1mS4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,7 +72,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>m7/Advk7N/9QV9lWGRFtpGy9RlUSZxFEnVR2pj2rzpg=</dsig:DigestValue>
+      <dsig:DigestValue>4xudRbhDr1A3joxR0UTab6B2Uprm37RSNC+B6pmwPPI=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="119078">

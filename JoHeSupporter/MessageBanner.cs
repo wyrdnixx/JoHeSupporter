@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
+using System.Threading;
 
 namespace JoHeSupporter
 {
@@ -19,7 +20,7 @@ namespace JoHeSupporter
         static System.Windows.Forms.Timer bannerScrollingTimer = new System.Windows.Forms.Timer();
 
         // nur für die While-Schleife des Timers
-        static bool exitFlag = false;
+        //static bool exitFlag = false;
         
         // wurde ein Banner zum Anzeigen in der Datei gefunden?
         bool MessageBannerFound = false;
@@ -29,7 +30,7 @@ namespace JoHeSupporter
         static string MessageText;
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
-        static int DefaultIntervall = 3;
+        static int DefaultIntervall = 60;
         static int Intervall;
 
         public MessageBanner()
@@ -121,15 +122,17 @@ namespace JoHeSupporter
             bannerUpdateTimer.Interval = mlseconds;
             bannerUpdateTimer.Start();
 
-            
 
 
+            ////////////  wenn der sleep in dem while ist, ist es besser - ohne diesen sehr hohe CPU-Last.
+            ////////////  -> While wird aber garnicht benötigt. wird über das bannerUpdateTimerEvent ausgelöst
             // Runs the timer, and raises the event.
-            while (exitFlag == false)
-            {
-                // Processes all the events in the queue.
-                Application.DoEvents();
-            }
+            //    while (exitFlag == false)
+            //   {
+            // Processes all the events in the queue.
+            //    Application.DoEvents();                
+            //      Thread.Sleep(500); //500 millisecond resolution for this timer
+            //   }
 
         }
 

@@ -15,3 +15,4 @@ D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Re
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\InfoDoku.pdf
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.MessageBanner.resources
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Release\MessageBanner.txt
+D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csprojResolveAssemblyReference.cache
