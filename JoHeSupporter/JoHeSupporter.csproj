@@ -155,7 +155,7 @@
     <Content Include="config.xml" />
     <Content Include="Icon.ico" />
     <Content Include="MessageBanner.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>

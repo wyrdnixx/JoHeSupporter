@@ -18,4 +18,5 @@
 #Resolved: 5 : Gelöst
 
 Info: 15 : [AD](Department)EDV : Test-Meldung 
-#Info: 15 : [User]hehn.jo : Test-Meldung User 
+Info: 15 : [User]ulewu : Test-Meldung User 
+Info: 15 : [AD](displayName)jojo : Test-Meldung AD-JoJo
