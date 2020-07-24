@@ -14,5 +14,4 @@ D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\De
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Debug\SKGL.dll
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Debug\InfoDoku.pdf
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\bin\Debug\MessageBanner.txt
-D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.csprojResolveAssemblyReference.cache
 D:\MSVS\Workspace\TFS_Workspace\chAos_Projekt\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.MessageBanner.resources

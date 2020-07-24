@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Threading;
+using System.DirectoryServices.AccountManagement;
+using System.DirectoryServices;
 
 namespace JoHeSupporter
 {
@@ -34,7 +36,7 @@ namespace JoHeSupporter
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
         //static int DefaultIntervall = 60;
-        static int DefaultIntervall = 3;   // TESTS
+        static int DefaultIntervall = 5;   // TESTS
         static int Intervall;
 
         public MessageBanner()
@@ -146,6 +148,13 @@ namespace JoHeSupporter
 
             readBannerFile();
 
+            // Test - counter wie oft wird die Datei gelesen
+            TestCounter++;
+            Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
+            ///////////
+
+
+
             // Nur, wenn die Form nicht schon angezeigt ist und auch ein Banner in der File gefunden wurde.
             if (!this.Visible && MessageBannerFound)
             {
@@ -192,10 +201,7 @@ namespace JoHeSupporter
         private void readBannerFile()
         {
 
-            // Test - counter wie oft wird die Datei gelesen
-            TestCounter++;
-            Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
-            ///////////
+
 
 
             // MessageBannerFound Variable zurück setzen;
@@ -270,22 +276,30 @@ namespace JoHeSupporter
         private bool checkValidTarget (String _MessageTargets)
         {
             String TargetType = _MessageTargets.Split('[', ']')[1];
-            Console.WriteLine("TargetType : " + TargetType);
+            Console.WriteLine("TargetType : >" + TargetType + "<");
 
             String Target = _MessageTargets.Split(']')[1];
 
-            Console.WriteLine("Target: " + Target);
+            Console.WriteLine("Target: >" + Target + "<");
 
             switch (TargetType)
             {
                 case "User":
-                    if (Environment.UserName == Target) return true;
+                    //Console.WriteLine("Current User: " + Environment.UserName.Trim().ToLower());
+                    //Console.WriteLine("Target User: " + Target.Trim().ToLower());
+                    if (Environment.UserName.Trim().ToLower() == Target.Trim().ToLower())
+                    {                        
+                        return true;
+                    }
                     break;
                 case "AD":
                     String ADField = Target.Split('(', ')')[1];
                     String ADString = Target.Split(')')[1];
                     Console.WriteLine("ADField " + ADField);
                     Console.WriteLine("ADString " + ADString);
+
+                    //ToDo : Hier noch eine NullException
+                    if (adCheck(ADField).ToLower() == ADString.ToLower()) return true;
                     break;
                 default:
                     return false;                    
@@ -295,18 +309,41 @@ namespace JoHeSupporter
             return false;
         }
 
-     /*   private void lbl_CloseBanner_Click(object sender, EventArgs e)
+
+        #region ToDo
+        private string adCheck(String _propertie)
         {
+            try
+            {
+                PrincipalContext ADDomain = new PrincipalContext(ContextType.Domain);
+                UserPrincipal user = UserPrincipal.FindByIdentity(ADDomain, UserPrincipal.Current.ToString());              
+
+                Console.WriteLine(GetPropertyByName(user, _propertie));
+                MessageBox.Show(GetPropertyByName(user, _propertie));
+                return GetPropertyByName(user, _propertie);
 
 
-            readBannerFile();
 
-            //Verstecke das Fenster, solange der Timer nicht das nächste mal anschlägt
-            this.Visible = false;
-            resetTimer();
-            bannerScrollingTimer.Stop();
+            } catch   (Exception e)
+            {
+                MessageBox.Show("ADCheck-Error - maybe no domain user : " + e.Message);
+            }
 
-        } */
+            return "";      
+            
+        }
+        private string GetPropertyByName(Principal principal, string propertyName)
+        {
+            DirectoryEntry directoryEntry = principal.GetUnderlyingObject() as DirectoryEntry;
+
+            if (directoryEntry.Properties.Contains(propertyName))
+            {
+                return directoryEntry.Properties[propertyName].Value.ToString();
+            }
+
+            return null;
+        }
+        #endregion ToDo
 
         private void resetTimer()
         {
@@ -314,14 +351,15 @@ namespace JoHeSupporter
             // Timer reseten, damit er bei 0 anfängt
             bannerUpdateTimer.Stop();
             // Aktualisiere das Intervall - wurde evtl. durch Meldungszeile aktualisiert.
-            //bannerUpdateTimer.Interval = Intervall;
+            bannerUpdateTimer.Interval = Intervall;
 
             //Starte Timer mit dem aktuellen intervall
-            startTimer(Intervall);
+            bannerUpdateTimer.Start();
+            //startTimer(Intervall);
 
-            //bannerUpdateTimer.Start();
 
-            
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)
