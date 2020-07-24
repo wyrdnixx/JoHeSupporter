@@ -16,3 +16,6 @@
 #Info: 15 : Dies ist eine Info-Meldung
 #Warning: 1 : Warnungstext
 #Resolved: 5 : Gelöst
+
+Info: 15 : [AD](Department)EDV : Test-Meldung 
+#Info: 15 : [User]hehn.jo : Test-Meldung User 

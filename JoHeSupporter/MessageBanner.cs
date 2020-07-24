@@ -25,12 +25,16 @@ namespace JoHeSupporter
         // wurde ein Banner zum Anzeigen in der Datei gefunden?
         bool MessageBannerFound = false;
 
+        int TestCounter = 0;   //TESTS
+
+        List<String> MessagesList = new List<String>();
 
         static string MessageType;
         static string MessageText;
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
-        static int DefaultIntervall = 60;
+        //static int DefaultIntervall = 60;
+        static int DefaultIntervall = 3;   // TESTS
         static int Intervall;
 
         public MessageBanner()
@@ -188,6 +192,12 @@ namespace JoHeSupporter
         private void readBannerFile()
         {
 
+            // Test - counter wie oft wird die Datei gelesen
+            TestCounter++;
+            Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
+            ///////////
+
+
             // MessageBannerFound Variable zurück setzen;
             MessageBannerFound = false;
 
@@ -199,37 +209,90 @@ namespace JoHeSupporter
             // System.IO.StreamReader file = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory + "MessageBanner.txt");
 
             string line;
-            
+
+            // List mit den Messages leeren.
+            MessagesList.Clear();
+
             while ((line = file.ReadLine()) != null)
             {
                 if (line.StartsWith("Info: ") || line.StartsWith("Warning: ") || line.StartsWith("Resolved: "))
                 {
                     // Es wurde eine Bannerzeile gefunden
-                    MessageBannerFound = true;
-                    
-
-                    int _gotIntervall;
-                    MessageType = line.Split(':')[0];
-
-                    // Wenn das Intervall aus Datei gelesen werden konnte und eine Zahl ist, dann setze das neue Intervall (* 1000 -> Sekunden in milliSekunden)
-                    Int32.TryParse(line.Split(':')[1], out _gotIntervall);
-                    
-                        Intervall = _gotIntervall * 1000;
-                        //MessageBox.Show(Intervall.ToString());
-                    
-
-                    MessageText = line.Split(':')[2];
-                    lbl_MessageText.Text = MessageText;
-
-                    if (line.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
-                    if (line.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
-                    if (line.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
-                }                
+                    MessagesList.Add(line);
+                }
             }
             file.Close();
+
+            //MessageBox.Show("List Size: " + Messages.Count());
+
+            // Messages durchlaufen
+            MessagesList.ForEach(delegate (String msgLine)
+            {
+                
+
+
+                int _gotIntervall;
+                MessageType = msgLine.Split(':')[0];
+
+                // Wenn das Intervall aus Datei gelesen werden konnte und eine Zahl ist, dann setze das neue Intervall (* 1000 -> Sekunden in milliSekunden)
+                Int32.TryParse(msgLine.Split(':')[1], out _gotIntervall);
+
+                Intervall = _gotIntervall * 1000;
+                //MessageBox.Show(Intervall.ToString());
+
+                String MessageTargets = msgLine.Split(':')[2];
+
+                //Console.WriteLine("Targets: " + MessageTargets);
+                MessageBannerFound = checkValidTarget(MessageTargets);
+
+                if (MessageBannerFound)
+                {
+                    MessageText = msgLine.Split(':')[3];
+                    lbl_MessageText.Text = MessageText;
+
+                    if (msgLine.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
+                    if (msgLine.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
+                    if (msgLine.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
+                }                
+
+            }); 
+
+            
+
+                    ///////
+            
             
             if (!MessageBannerFound) { Intervall = DefaultIntervall; }
             resetTimer();
+        }
+
+
+        private bool checkValidTarget (String _MessageTargets)
+        {
+            String TargetType = _MessageTargets.Split('[', ']')[1];
+            Console.WriteLine("TargetType : " + TargetType);
+
+            String Target = _MessageTargets.Split(']')[1];
+
+            Console.WriteLine("Target: " + Target);
+
+            switch (TargetType)
+            {
+                case "User":
+                    if (Environment.UserName == Target) return true;
+                    break;
+                case "AD":
+                    String ADField = Target.Split('(', ')')[1];
+                    String ADString = Target.Split(')')[1];
+                    Console.WriteLine("ADField " + ADField);
+                    Console.WriteLine("ADString " + ADString);
+                    break;
+                default:
+                    return false;                    
+            }
+
+            // last resort
+            return false;
         }
 
      /*   private void lbl_CloseBanner_Click(object sender, EventArgs e)
@@ -251,8 +314,12 @@ namespace JoHeSupporter
             // Timer reseten, damit er bei 0 anfängt
             bannerUpdateTimer.Stop();
             // Aktualisiere das Intervall - wurde evtl. durch Meldungszeile aktualisiert.
-            bannerUpdateTimer.Interval = Intervall;
-            bannerUpdateTimer.Start();
+            //bannerUpdateTimer.Interval = Intervall;
+
+            //Starte Timer mit dem aktuellen intervall
+            startTimer(Intervall);
+
+            //bannerUpdateTimer.Start();
 
             
         }
