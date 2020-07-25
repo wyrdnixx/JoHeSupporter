@@ -274,6 +274,8 @@ namespace JoHeSupporter
 
             Console.WriteLine("Target: >" + Target + "<");
 
+            // ToDo: validate if any criteria matches - not only last from list
+
             switch (TargetType)
             {
                 case "User":
