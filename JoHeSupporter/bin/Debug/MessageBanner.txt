@@ -17,6 +17,6 @@
 #Warning: 1 : Warnungstext
 #Resolved: 5 : Gelöst
 
-Info: 15 : [AD](Department)EDV : Test-Meldung 
-Info: 15 : [User]ulewu : Test-Meldung User 
-Info: 15 : [AD](displayName)jojo : Test-Meldung AD-JoJo
+Info: 15 : [AD](Department)EDV : Test-Meldung EDV
+#Info: 15 : [User]ulewu : Test-Meldung User 
+Info: 15 : [AD](DisplayName)ulewu : Test-Meldung AD-ulewu

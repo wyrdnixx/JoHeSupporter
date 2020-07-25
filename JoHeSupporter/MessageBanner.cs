@@ -36,16 +36,18 @@ namespace JoHeSupporter
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
         //static int DefaultIntervall = 60;
-        static int DefaultIntervall = 5;   // TESTS
+        static int DefaultIntervall = 20 * 1000;   // TESTS
         static int Intervall;
 
         public MessageBanner()
         {
             InitializeComponent();
-
             
+            bannerScrollingTimer.Interval = 100;
+            bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
+            bannerUpdateTimer.Tick += new EventHandler(bannerUpdateTimerEvent);
+
             startTimer(DefaultIntervall);
-           
         }
 
         // Verhindert, dass beim Anzeigen der Form der Focus verlohren geht.
@@ -121,25 +123,12 @@ namespace JoHeSupporter
 
         private void startTimer(int _seconds)
         {
-            bannerUpdateTimer.Tick += new EventHandler(bannerUpdateTimerEvent);
 
-            // Sets the timer interval to 5 seconds.
-            int mlseconds = _seconds * 1000;
-            bannerUpdateTimer.Interval = mlseconds;
+            //int mlseconds = _seconds * 1000;
+            // interval in mlsecunds -> _Seconds * 1000
+            bannerUpdateTimer.Interval = _seconds * 1000;
             bannerUpdateTimer.Start();
-
-
-
-            ////////////  wenn der sleep in dem while ist, ist es besser - ohne diesen sehr hohe CPU-Last.
-            ////////////  -> While wird aber garnicht benötigt. wird über das bannerUpdateTimerEvent ausgelöst
-            // Runs the timer, and raises the event.
-            //    while (exitFlag == false)
-            //   {
-            // Processes all the events in the queue.
-            //    Application.DoEvents();                
-            //      Thread.Sleep(500); //500 millisecond resolution for this timer
-            //   }
-
+                        
         }
 
         private void bannerUpdateTimerEvent(Object myObject,
@@ -148,13 +137,7 @@ namespace JoHeSupporter
 
             readBannerFile();
 
-            // Test - counter wie oft wird die Datei gelesen
-            TestCounter++;
-            Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
-            ///////////
-
-
-
+     
             // Nur, wenn die Form nicht schon angezeigt ist und auch ein Banner in der File gefunden wurde.
             if (!this.Visible && MessageBannerFound)
             {
@@ -165,11 +148,14 @@ namespace JoHeSupporter
             // wenn der Banner länger als die Bildschirmbreite ist...
             if (this.lbl_MessageText.Width > SystemInformation.VirtualScreen.Width)
             {
+
+                
                 // Wenn der Scrolling-Timer nicht schon läuft (wird sonnst doppelt gestartet)
                 if (bannerScrollingTimer.Enabled == false)
-                {
-                    bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
-                    bannerScrollingTimer.Interval = 100;
+               {
+                    //bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
+//                    bannerScrollingTimer.Interval = 100;  // jetzt oben global eingestellt.
+                    //Console.WriteLine(bannerScrollingTimer.Interval);
                     bannerScrollingTimer.Start();
                 }
                 
@@ -182,7 +168,9 @@ namespace JoHeSupporter
         private void bannerScrollingTimerEvent(Object myObject,
                                             EventArgs myEventArgs)
         {
-                // Scrollen
+
+            //Console.WriteLine("Scroller");
+            // Scrollen
                 this.lbl_MessageText.Left = this.lbl_MessageText.Left - 3;
             
             // wenn der Banner ganz links angekommen ist, dann wieder ganz rechts anfangen..
@@ -202,6 +190,10 @@ namespace JoHeSupporter
         {
 
 
+            // Test - counter wie oft wird die Datei gelesen
+            TestCounter++;
+            Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
+            ///////////
 
 
             // MessageBannerFound Variable zurück setzen;
@@ -295,11 +287,16 @@ namespace JoHeSupporter
                 case "AD":
                     String ADField = Target.Split('(', ')')[1];
                     String ADString = Target.Split(')')[1];
-                    Console.WriteLine("ADField " + ADField);
-                    Console.WriteLine("ADString " + ADString);
+                    //Console.WriteLine("ADField " + ADField);
+                    //Console.WriteLine("ADString " + ADString);
 
-                    //ToDo : Hier noch eine NullException
-                    if (adCheck(ADField).ToLower() == ADString.ToLower()) return true;
+                    String adResult = adCheck(ADField).ToLower().Trim();
+
+
+                    if (adResult == ADString.ToLower().Trim())
+                    {
+                        return true;
+                    }
                     break;
                 default:
                     return false;                    
@@ -313,20 +310,54 @@ namespace JoHeSupporter
         #region ToDo
         private string adCheck(String _propertie)
         {
+            Console.WriteLine("Checking AD-Property : " + _propertie);
+
             try
             {
                 PrincipalContext ADDomain = new PrincipalContext(ContextType.Domain);
-                UserPrincipal user = UserPrincipal.FindByIdentity(ADDomain, UserPrincipal.Current.ToString());              
+                UserPrincipal user = UserPrincipal.FindByIdentity(ADDomain, UserPrincipal.Current.ToString());
 
-                Console.WriteLine(GetPropertyByName(user, _propertie));
-                MessageBox.Show(GetPropertyByName(user, _propertie));
-                return GetPropertyByName(user, _propertie);
+//                PropertyInfo[] probs = Type.GetType(user.GetType().ToString()).GetProperties();
 
 
 
-            } catch   (Exception e)
+                var properties = typeof(UserPrincipal).GetProperties();
+
+                IList<KeyValuePair<string, object>> propertyValues = new List<KeyValuePair<string, object>>();
+
+                //foreach (var propertyInfo in properties)
+                //{
+                //    if (propertyInfo.Name == _propertie)
+                //    {
+                //        Console.WriteLine("AD-Property found: " + propertyInfo.Name + " : " + propertyInfo.GetValue(user));
+                //        return propertyInfo.GetValue(user).ToString();
+                //    }
+
+                //}
+
+
+                DirectorySearcher deSearch = new DirectorySearcher((DirectoryEntry)user.GetUnderlyingObject());
+                deSearch.PropertiesToLoad.Add(_propertie);
+                SearchResultCollection results = deSearch.FindAll();
+
+                if (results != null && results.Count > 0)
+                {
+                    ResultPropertyCollection rpc = results[0].Properties;
+                    foreach (string rp in rpc.PropertyNames)
+                    {
+                        // if (rp == "mobile")
+                        //   Console.WriteLine(rpc["mobile"][0].ToString());
+                        Console.WriteLine("Property found : " + _propertie + " : "+ rpc[_propertie][0].ToString());
+                        return rpc[_propertie][0].ToString();
+                    }
+                }
+
+
+
+                //////////////////////////////////
+                } catch   (Exception e)
             {
-                MessageBox.Show("ADCheck-Error - maybe no domain user : " + e.Message);
+                //MessageBox.Show("ADCheck-Error - maybe no domain user : " + e.Message);
             }
 
             return "";      
@@ -351,7 +382,7 @@ namespace JoHeSupporter
             // Timer reseten, damit er bei 0 anfängt
             bannerUpdateTimer.Stop();
             // Aktualisiere das Intervall - wurde evtl. durch Meldungszeile aktualisiert.
-            bannerUpdateTimer.Interval = Intervall;
+            bannerUpdateTimer.Interval = Intervall ;
 
             //Starte Timer mit dem aktuellen intervall
             bannerUpdateTimer.Start();
