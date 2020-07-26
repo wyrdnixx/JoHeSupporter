@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8z7pUsxMYT/taixWjYgUS4M2Bicws2sh7t9ICwz5g6s=</dsig:DigestValue>
+        <dsig:DigestValue>Ut2d92lgT4zmd4m5Fw0s7UnDe3+jj1JYyczK8R+11hA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -84,22 +84,22 @@
       <dsig:DigestValue>+Xm0xsS/f8/jWftGft4pEm1WblLrGL3ggDMfjDKFjzs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="JoHeSupporter.exe.config" size="189">
+  <file name="JoHeSupporter.exe.config" size="184">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+      <dsig:DigestValue>jWVCngsqgsEdPtxOoE7SAK7f6h1++LmE6IqOl8/1R3A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MessageBanner.txt" size="780">
+  <file name="MessageBanner.txt" size="838">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FQS2C3K6NxNrv7SgxT5yYXITkq6ldhT8LzlVvwcd2Sk=</dsig:DigestValue>
+      <dsig:DigestValue>ybjrn3lHKJXclhRnAY/gZWsJRx0qrC4xj7g9q/iC5iQ=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

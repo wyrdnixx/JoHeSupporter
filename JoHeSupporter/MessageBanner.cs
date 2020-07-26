@@ -248,10 +248,15 @@ namespace JoHeSupporter
                     MessageText = msgLine.Split(':')[3];
                     lbl_MessageText.Text = MessageText;
 
+                    Console.WriteLine("Banner to show: " + MessageText);
+
                     if (msgLine.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
                     if (msgLine.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
                     if (msgLine.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
-                }                
+                }    else
+                {
+                    Console.WriteLine("No Banner - nothing to show");
+                }            
 
             }); 
 
