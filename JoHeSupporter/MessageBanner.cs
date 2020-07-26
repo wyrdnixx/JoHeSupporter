@@ -39,6 +39,9 @@ namespace JoHeSupporter
         static int DefaultIntervall = 20 * 1000;   // TESTS
         static int Intervall;
 
+        // Liste der Messages die für einen Client angezeigt werden sollen.
+        List<MessageToShow> msgList = new List<MessageToShow>();
+
         public MessageBanner()
         {
             InitializeComponent();
@@ -139,8 +142,9 @@ namespace JoHeSupporter
 
      
             // Nur, wenn die Form nicht schon angezeigt ist und auch ein Banner in der File gefunden wurde.
-            if (!this.Visible && MessageBannerFound)
-            {
+            //if (!this.Visible && MessageBannerFound)
+            if (!this.Visible && msgList.Count() > 0)
+                {
                 this.Visible = true;
             
             }
@@ -221,13 +225,15 @@ namespace JoHeSupporter
             }
             file.Close();
 
-            //MessageBox.Show("List Size: " + Messages.Count());
+
+
+            
+
+            msgList.Clear();
 
             // Messages durchlaufen
             MessagesList.ForEach(delegate (String msgLine)
             {
-                
-
 
                 int _gotIntervall;
                 MessageType = msgLine.Split(':')[0];
@@ -240,32 +246,46 @@ namespace JoHeSupporter
 
                 String MessageTargets = msgLine.Split(':')[2];
 
+                MessageText = msgLine.Split(':')[3];
+
                 //Console.WriteLine("Targets: " + MessageTargets);
-                MessageBannerFound = checkValidTarget(MessageTargets);
+                MessageBannerFound = checkValidTarget(MessageTargets);                
 
-                if (MessageBannerFound)
+                if(MessageBannerFound)
                 {
-                    MessageText = msgLine.Split(':')[3];
-                    lbl_MessageText.Text = MessageText;
+                    msgList.Add(new MessageToShow(MessageType, Intervall, MessageText));
+                }
 
-                    Console.WriteLine("Banner to show: " + MessageText);
+            });
 
-                    if (msgLine.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
-                    if (msgLine.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
-                    if (msgLine.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
-                }    else
+
+            if (msgList.Count > 0)
+            {
+                
+                foreach (var msg in msgList)
                 {
-                    Console.WriteLine("No Banner - nothing to show");
-                }            
+                    //lbl_MessageText.Text = MessageText;
+                    lbl_MessageText.Text = msg.Text;
 
-            }); 
+                    Console.WriteLine("Banner to show: " + msg.Text);
 
-            
-
+                    // OLD
+                    //if (msgLine.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
+                    //if (msgLine.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
+                    //if (msgLine.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
                     ///////
+
+                    if (msg.Type.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
+                    if (msg.Type.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
+                    if (msg.Type.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
+                    Intervall = msg.Intervall;
+                }
+            }  else // wenn keine Messages anzuzeigen sind.
+            {
+                Intervall = DefaultIntervall;
+            }          
             
-            
-            if (!MessageBannerFound) { Intervall = DefaultIntervall; }
+            // Timer mit neuen Parametern neu starten 
             resetTimer();
         }
 
@@ -314,7 +334,7 @@ namespace JoHeSupporter
         }
 
 
-        #region ToDo
+        
         private string adCheck(String _propertie)
         {
             Console.WriteLine("Checking AD-Property : " + _propertie);
@@ -331,18 +351,7 @@ namespace JoHeSupporter
                 var properties = typeof(UserPrincipal).GetProperties();
 
                 IList<KeyValuePair<string, object>> propertyValues = new List<KeyValuePair<string, object>>();
-
-                //foreach (var propertyInfo in properties)
-                //{
-                //    if (propertyInfo.Name == _propertie)
-                //    {
-                //        Console.WriteLine("AD-Property found: " + propertyInfo.Name + " : " + propertyInfo.GetValue(user));
-                //        return propertyInfo.GetValue(user).ToString();
-                //    }
-
-                //}
-
-
+                
                 DirectorySearcher deSearch = new DirectorySearcher((DirectoryEntry)user.GetUnderlyingObject());
                 deSearch.PropertiesToLoad.Add(_propertie);
                 SearchResultCollection results = deSearch.FindAll();
@@ -381,7 +390,7 @@ namespace JoHeSupporter
 
             return null;
         }
-        #endregion ToDo
+        
 
         private void resetTimer()
         {
@@ -412,3 +421,19 @@ namespace JoHeSupporter
     }
 
 }
+
+public class MessageToShow {
+
+    public String Type;
+    public int Intervall;
+    public String Text;
+
+    public MessageToShow(String _Type, int _Seconds, String _Text)
+    {
+        this.Type = _Type;
+        this.Intervall = _Seconds;
+        this.Text = _Text;
+    }
+
+}
+

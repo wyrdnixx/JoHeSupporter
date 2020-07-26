@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="446464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="446976">
       <assemblyIdentity name="JoHeSupporter" version="2.0.1.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ut2d92lgT4zmd4m5Fw0s7UnDe3+jj1JYyczK8R+11hA=</dsig:DigestValue>
+        <dsig:DigestValue>UObPZh0QLVBo0Fys2fC7+QlgdJuLS4y8nKui/TGsxTE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
