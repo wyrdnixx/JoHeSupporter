@@ -18,6 +18,7 @@
 #Resolved: 5 : Gelöst
 
 Info: 5 : [AD](Department)EDV : Test-Meldung EDV
-Info: 5 : [User]ulewu2 : Test-Meldung User Ulewu
+Resolved: 5 : [User]ulewu : Test-Meldung User Ulewu
 #Info: 5 : [AD](DisplayName)ulewu : Test-Meldung AD-ulewu
 Info: 5 : [AD](DisplayName)TEST : Test-Meldung AD-TEST
+Warning: 5 : [*]: Test-Warnung -Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->

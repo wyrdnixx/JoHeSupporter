@@ -275,9 +275,9 @@ namespace JoHeSupporter
                     //if (msgLine.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
                     ///////
 
-                    if (msg.Type.StartsWith("Info: ")) { this.BackColor = Color.LightBlue; }
-                    if (msg.Type.StartsWith("Warning: ")) { this.BackColor = Color.OrangeRed; }
-                    if (msg.Type.StartsWith("Resolved: ")) { this.BackColor = Color.LightGreen; }
+                    if (msg.Type.StartsWith("Info")) { this.BackColor = Color.LightBlue; }
+                    if (msg.Type.StartsWith("Warning")) { this.BackColor = Color.OrangeRed; }
+                    if (msg.Type.StartsWith("Resolved")) { this.BackColor = Color.LightGreen; }
                     Intervall = msg.Intervall;
                 }
             }  else // wenn keine Messages anzuzeigen sind.
@@ -303,6 +303,8 @@ namespace JoHeSupporter
 
             switch (TargetType)
             {
+                case "*": // meldung gillt für alle 
+                    return true;
                 case "User":
                     //Console.WriteLine("Current User: " + Environment.UserName.Trim().ToLower());
                     //Console.WriteLine("Target User: " + Target.Trim().ToLower());
