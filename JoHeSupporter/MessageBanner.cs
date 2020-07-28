@@ -46,7 +46,7 @@ namespace JoHeSupporter
         {
             InitializeComponent();
             
-            bannerScrollingTimer.Interval = 100;
+            bannerScrollingTimer.Interval = 2;
             bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
             bannerUpdateTimer.Tick += new EventHandler(bannerUpdateTimerEvent);
 
@@ -175,7 +175,7 @@ namespace JoHeSupporter
 
             //Console.WriteLine("Scroller");
             // Scrollen
-                this.lbl_MessageText.Left = this.lbl_MessageText.Left - 3;
+                this.lbl_MessageText.Left = this.lbl_MessageText.Left - 1;
             
             // wenn der Banner ganz links angekommen ist, dann wieder ganz rechts anfangen..
             if (this.lbl_MessageText.Right <= 0)

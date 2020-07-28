@@ -57,6 +57,7 @@
             this.ClientSize = new System.Drawing.Size(493, 158);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lbl_MessageText);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MessageBanner";
             this.Text = "MessageBanner";
