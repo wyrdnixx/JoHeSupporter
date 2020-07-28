@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="JoHeSupporter.exe.manifest" size="5508">
+    <dependentAssembly dependencyType="install" codebase="JoHeSupporter.exe.manifest" size="5509">
       <assemblyIdentity name="JoHeSupporter.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WLYuaG1PxSZ4fTT5t5iJY9lPuOv1KcwolsUl+yUIpS8=</dsig:DigestValue>
+        <dsig:DigestValue>8BwFNNjrbxVR5HHEqdsTUPinx41iovtifWzQDg+nJBw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

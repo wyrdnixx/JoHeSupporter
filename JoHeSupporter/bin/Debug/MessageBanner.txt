@@ -22,4 +22,4 @@ Resolved; 5 ; [U]ulewu ; Test-Meldung User Ulewu
 #Info; 5 ; [AD](DisplayName)ulewu ; Test-Meldung AD-ulewu
 Info; 5 ; [AD](DisplayName)TEST ; Test-Meldung AD-TEST
 Warning; 5 ; [*]; Test-Warnung -Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->
-Resolved; 5 ; [G]WG_Benutzer_; Test-Resolved Group [G]
+Resolved; 5 ; [G]WG_Benutzer; Test-Resolved Group [G]

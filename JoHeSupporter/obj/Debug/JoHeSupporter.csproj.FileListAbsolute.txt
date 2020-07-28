@@ -60,7 +60,6 @@ C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Debug\JoHeSupporter.appl
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Debug\JoHeSupporter.exe
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Debug\JoHeSupporter.pdb
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Debug\SKGL.dll
-C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.csprojResolveAssemblyReference.cache
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.GUI.resources
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.MessageBanner.resources
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.Properties.Resources.resources

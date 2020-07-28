@@ -27,7 +27,7 @@ namespace JoHeSupporter
         // wurde ein Banner zum Anzeigen in der Datei gefunden?
         bool MessageBannerFound = false;
 
-        int TestCounter = 0;   //TESTS
+        //int TestCounter = 0;   //TESTS
 
         List<String> MessagesList = new List<String>();
 
@@ -195,8 +195,8 @@ namespace JoHeSupporter
 
 
             // Test - counter wie oft wird die Datei gelesen
-            TestCounter++;
-            Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
+            //TestCounter++;
+            //Console.WriteLine("ReadBannerFile Counter: " + TestCounter);
             ///////////
 
 
@@ -225,16 +225,20 @@ namespace JoHeSupporter
             }
             file.Close();
 
-
+            file.Dispose();
 
             
 
             msgList.Clear();
+            
 
             // Messages durchlaufen
             MessagesList.ForEach(delegate (String msgLine)
             {
+                try
+                {
 
+                
                 int _gotIntervall;
                 String[] ConfiguredMessage = msgLine.Split(';');
 
@@ -261,7 +265,10 @@ namespace JoHeSupporter
                 {
                     msgList.Add(new MessageToShow(MessageType, Intervall, MessageText));
                 }
-
+                } catch (Exception e)
+                {
+                    Console.WriteLine("error parsing message Line: " + e.Message);
+                }
             });
 
 
@@ -426,11 +433,20 @@ namespace JoHeSupporter
         }
         private string GetPropertyByName(Principal principal, string propertyName)
         {
+
+            try
+            {
+
+            
             DirectoryEntry directoryEntry = principal.GetUnderlyingObject() as DirectoryEntry;
 
             if (directoryEntry.Properties.Contains(propertyName))
             {
                 return directoryEntry.Properties[propertyName].Value.ToString();
+            }
+            } catch (Exception e)
+            {
+                Console.WriteLine("Error getting ad-object-properties: " + e.Message);
             }
 
             return null;

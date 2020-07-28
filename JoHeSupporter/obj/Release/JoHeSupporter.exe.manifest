@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JoHeSupporter" version="2.0.1.1" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JoHeSupporter" version="2.0.2.2" language="neutral" processorArchitecture="msil" />
     <commandLine file="JoHeSupporter.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="442368">
-      <assemblyIdentity name="JoHeSupporter" version="2.0.1.1" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="445440">
+      <assemblyIdentity name="JoHeSupporter" version="2.0.2.2" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BHm61Jrr0q2HdPJlotEo6W8d/fYaNq0CUCqPpB20sRI=</dsig:DigestValue>
+        <dsig:DigestValue>swixUz9G7kF3DFYAaIH4pFeoSnvHNCT/aKLoeJTlv4E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -84,22 +84,22 @@
       <dsig:DigestValue>+Xm0xsS/f8/jWftGft4pEm1WblLrGL3ggDMfjDKFjzs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="JoHeSupporter.exe.config" size="189">
+  <file name="JoHeSupporter.exe.config" size="184">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+      <dsig:DigestValue>jWVCngsqgsEdPtxOoE7SAK7f6h1++LmE6IqOl8/1R3A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MessageBanner.txt" size="622">
+  <file name="MessageBanner.txt" size="1283">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DnSmmKTl46EelQYWShuIVs0+mWFzi6qnTSiu9PF7dNc=</dsig:DigestValue>
+      <dsig:DigestValue>7V700q2lsMgH+D6K2TEtTCAUYwTS6PHGd4VqkiaK+jA=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
