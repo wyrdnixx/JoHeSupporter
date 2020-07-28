@@ -6,19 +6,20 @@
 #
 # Zeige Info oder Alarmmeldungen am Bildschirm
 #
-# Beispielzeile:
-# Info: 5 : Dies ist eine Info-Meldung
-# [Typ]: [Intervall] : [Text]
+# Beispielzeile;
+# Info; 5 ; Dies ist eine Info-Meldung
+# [Typ]; [Intervall] ; [Text]
 # Typ = Info, Warning oder Resolved
 # Intervall = Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll -> z.B.: 1800 = 30 minuten; 900 = 15 Minuten
 # -> Nur die letzte Zeile ohne Kommentareichen wird angewendet
 
-#Info: 15 : Dies ist eine Info-Meldung
-#Warning: 1 : Warnungstext
-#Resolved: 5 : Gelöst
+#Info; 15 ; Dies ist eine Info-Meldung
+#Warning; 1 ; Warnungstext
+#Resolved; 5 ; Gelöst
 
-Info: 5 : [AD](Department)EDV : Test-Meldung EDV
-Resolved: 5 : [User]ulewu : Test-Meldung User Ulewu
-#Info: 5 : [AD](DisplayName)ulewu : Test-Meldung AD-ulewu
-Info: 5 : [AD](DisplayName)TEST : Test-Meldung AD-TEST
-Warning: 5 : [*]: Test-Warnung -Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->
+Info; 5 ; [AD](Department)EDV ; Test-Meldung EDV
+Resolved; 5 ; [U]ulewu ; Test-Meldung User Ulewu
+#Info; 5 ; [AD](DisplayName)ulewu ; Test-Meldung AD-ulewu
+Info; 5 ; [AD](DisplayName)TEST ; Test-Meldung AD-TEST
+Warning; 5 ; [*]; Test-Warnung -Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->
+Resolved; 5 ; [G]WG_Benutzer_; Test-Resolved Group [G]

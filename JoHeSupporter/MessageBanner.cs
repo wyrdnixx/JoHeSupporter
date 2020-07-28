@@ -31,8 +31,8 @@ namespace JoHeSupporter
 
         List<String> MessagesList = new List<String>();
 
-        static string MessageType;
-        static string MessageText;
+        //static string MessageType;
+        //static string MessageText;
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
         //static int DefaultIntervall = 60;
@@ -217,7 +217,7 @@ namespace JoHeSupporter
 
             while ((line = file.ReadLine()) != null)
             {
-                if (line.StartsWith("Info: ") || line.StartsWith("Warning: ") || line.StartsWith("Resolved: "))
+                if (line.StartsWith("Info; ") || line.StartsWith("Warning; ") || line.StartsWith("Resolved; "))
                 {
                     // Es wurde eine Bannerzeile gefunden
                     MessagesList.Add(line);
@@ -236,17 +236,23 @@ namespace JoHeSupporter
             {
 
                 int _gotIntervall;
-                MessageType = msgLine.Split(':')[0];
+                String[] ConfiguredMessage = msgLine.Split(';');
+
+                //MessageType = msgLine.Split(';')[0];
+                String MessageType = ConfiguredMessage[0];
 
                 // Wenn das Intervall aus Datei gelesen werden konnte und eine Zahl ist, dann setze das neue Intervall (* 1000 -> Sekunden in milliSekunden)
-                Int32.TryParse(msgLine.Split(':')[1], out _gotIntervall);
+                // Int32.TryParse(msgLine.Split(';')[1], out _gotIntervall);
+                Int32.TryParse(ConfiguredMessage[1], out _gotIntervall);
 
                 Intervall = _gotIntervall * 1000;
                 //MessageBox.Show(Intervall.ToString());
 
-                String MessageTargets = msgLine.Split(':')[2];
+                //String MessageTargets = msgLine.Split(':')[2];
+                String MessageTargets = ConfiguredMessage[2];
 
-                MessageText = msgLine.Split(':')[3];
+                // MessageText = msgLine.Split(':')[3];
+                String MessageText = ConfiguredMessage[3];
 
                 //Console.WriteLine("Targets: " + MessageTargets);
                 MessageBannerFound = checkValidTarget(MessageTargets);                
@@ -305,7 +311,7 @@ namespace JoHeSupporter
             {
                 case "*": // meldung gillt für alle 
                     return true;
-                case "User":
+                case "U":
                     //Console.WriteLine("Current User: " + Environment.UserName.Trim().ToLower());
                     //Console.WriteLine("Target User: " + Target.Trim().ToLower());
                     if (Environment.UserName.Trim().ToLower() == Target.Trim().ToLower())
@@ -316,14 +322,18 @@ namespace JoHeSupporter
                 case "AD":
                     String ADField = Target.Split('(', ')')[1];
                     String ADString = Target.Split(')')[1];
-                    //Console.WriteLine("ADField " + ADField);
-                    //Console.WriteLine("ADString " + ADString);
-
-                    String adResult = adCheck(ADField).ToLower().Trim();
-
-
+                    
+                    String adResult = adCheckField(ADField).ToLower().Trim();                    
                     if (adResult == ADString.ToLower().Trim())
                     {
+                        return true;
+                    }
+                    break;
+                case "G":
+
+                    if (adCheckGroup(Target))
+                    {
+                        Console.WriteLine("AD-Group found: "  + Target);
                         return true;
                     }
                     break;
@@ -335,9 +345,42 @@ namespace JoHeSupporter
             return false;
         }
 
+        private bool adCheckGroup(String _grp)
+        {
+            Console.WriteLine("Checking ActiveDirectory Groups: ");
+            try
+            {
+                PrincipalContext ADDomain = new PrincipalContext(ContextType.Domain);
+                UserPrincipal user = UserPrincipal.FindByIdentity(ADDomain, UserPrincipal.Current.ToString());
 
-        
-        private string adCheck(String _propertie)
+                // if found - grab its groups
+                if (user != null)
+                {
+                    PrincipalSearchResult<Principal> groups = user.GetAuthorizationGroups();
+
+                    // iterate over all groups
+                    foreach (Principal p in groups)
+                    {
+                       
+                        Console.WriteLine("Group-->: " + p.Name);
+                        if (p.Name.ToLower() == _grp.ToLower()) return true;
+                    }
+                }
+
+
+
+                    } catch (Exception e) // evtl. non-AD-User
+            {
+                Console.WriteLine("AD-Group Check failed: " + e.Message);
+                
+            }
+
+            return false;
+
+        }
+
+
+        private string adCheckField(String _propertie)
         {
             Console.WriteLine("Checking AD-Property : " + _propertie);
 
