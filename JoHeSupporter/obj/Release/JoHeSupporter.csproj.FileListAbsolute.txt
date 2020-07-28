@@ -26,7 +26,6 @@ C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.ap
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.pdb
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\bin\Release\SKGL.dll
-C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csprojResolveAssemblyReference.cache
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUI.resources
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.MessageBanner.resources
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Properties.Resources.resources

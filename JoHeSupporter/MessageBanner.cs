@@ -36,7 +36,7 @@ namespace JoHeSupporter
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
         //static int DefaultIntervall = 60;
-        static int DefaultIntervall = 20 * 1000;   // TESTS
+        static int DefaultIntervall = 60 * 1000;   // TESTS
         static int Intervall;
 
         // Liste der Messages die für einen Client angezeigt werden sollen.
@@ -245,23 +245,26 @@ namespace JoHeSupporter
                 //MessageType = msgLine.Split(';')[0];
                 String MessageType = ConfiguredMessage[0];
 
-                // Wenn das Intervall aus Datei gelesen werden konnte und eine Zahl ist, dann setze das neue Intervall (* 1000 -> Sekunden in milliSekunden)
-                // Int32.TryParse(msgLine.Split(';')[1], out _gotIntervall);
-                Int32.TryParse(ConfiguredMessage[1], out _gotIntervall);
 
-                Intervall = _gotIntervall * 1000;
-                //MessageBox.Show(Intervall.ToString());
+                    //String MessageTargets = msgLine.Split(':')[2];
+                    String MessageTargets = ConfiguredMessage[2];
 
-                //String MessageTargets = msgLine.Split(':')[2];
-                String MessageTargets = ConfiguredMessage[2];
+                    // MessageText = msgLine.Split(':')[3];
+                    String MessageText = ConfiguredMessage[3];
 
-                // MessageText = msgLine.Split(':')[3];
-                String MessageText = ConfiguredMessage[3];
+                    // Wenn das Intervall aus Datei gelesen werden konnte und eine Zahl ist, dann setze das neue Intervall (* 1000 -> Sekunden in milliSekunden)
+                    // Int32.TryParse(msgLine.Split(';')[1], out _gotIntervall);
+                    Int32.TryParse(ConfiguredMessage[1], out _gotIntervall);
 
+                
+                    Intervall = _gotIntervall * 1000;
+                
                 //Console.WriteLine("Targets: " + MessageTargets);
                 MessageBannerFound = checkValidTarget(MessageTargets);                
 
-                if(MessageBannerFound)
+
+                    // nur wenn Messagebanner falide ist und das Intervall richtig gelesen werden konnte.
+                if(MessageBannerFound && _gotIntervall != 0)
                 {
                     msgList.Add(new MessageToShow(MessageType, Intervall, MessageText));
                 }
