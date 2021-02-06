@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>veSoaelgyBNl2y81dntdIaugL1bhwicaDd20Ivdzok8=</dsig:DigestValue>
+        <dsig:DigestValue>qllXXQlRHNygzhKPpDS8jXTAm8pSuApIL2SSWAjwIdo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -93,13 +93,13 @@
       <dsig:DigestValue>jWVCngsqgsEdPtxOoE7SAK7f6h1++LmE6IqOl8/1R3A=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MessageBanner.txt" size="1798">
+  <file name="MessageBanner.txt" size="1799">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>GZg+M2LZYU2nNX6X+a28bYGQiAuOTEUex7rB3CnwXZQ=</dsig:DigestValue>
+      <dsig:DigestValue>UIkZGyWQnk+6MW4vZ63NiPUuMataHWEzcxqOgbrfyRE=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
