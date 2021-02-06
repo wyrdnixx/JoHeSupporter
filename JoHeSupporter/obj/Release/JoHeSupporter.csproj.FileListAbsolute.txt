@@ -33,3 +33,4 @@ C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Us
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.GenerateResource.Cache
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe.manifest
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.application
+C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUIChangePassword.resources

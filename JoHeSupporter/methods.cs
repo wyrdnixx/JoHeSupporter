@@ -157,6 +157,9 @@ namespace JoHeSupporter
                         case "MailPwd":
                             _param.AppCfg_MailPwd = element.InnerText;
                             break;
+                        case "MailPwdEnc":
+                            _param.AppCfg_MailPwdEnc = element.InnerText;
+                            break;
                         case "AttachFile":
                             _param.AppCfg_AttachFile.Add(element.InnerText);
                             break;
@@ -297,6 +300,7 @@ namespace JoHeSupporter
         {
 
             MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
 
             try
             {
@@ -308,7 +312,6 @@ namespace JoHeSupporter
                 //    );
                 
                 //SmtpClient SmtpServer = new SmtpClient(Param.AppCfg_MailSrv);
-                SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
 
 
                 // wenn AppCfg_UseUserMail festgelegt wurde, die user mail zu verwenden nimm diese, an sonnsten die AppCfg_MailFrom
@@ -403,7 +406,31 @@ namespace JoHeSupporter
                 // wenn Appcfg_UseMailAuth / Authentifizierung aktiviert ist
                 if (_param.AppCfg_UseMailAuth == "true")
                 {
-                    SmtpServer.Credentials = new System.Net.NetworkCredential(_param.AppCfg_MailUsr, _param.AppCfg_MailPwd);
+
+
+                    //string Encr = Utilities.Encryption.AESEncryption.Encrypt(_param.AppCfg_MailPwdEnc, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
+                    //Console.WriteLine(Encr);
+                    //MessageBox.Show("Encrypted: " + Encr);
+                    string DecryptedPwd="";
+                    try
+                    {
+                        DecryptedPwd = Utilities.Encryption.AESEncryption.Decrypt(_param.AppCfg_MailPwdEnc, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
+                    }catch (Exception e)
+                    {
+                        MessageBox.Show("Konfigurationsproblem: \nDas Passwort aus der Konfiguration konnte nicht entschlüsselt werden.\n\nIhre Supportanfrage konnte leider nicht gesendet werden.");
+
+                        // An dieser Stelle abbrechen - Konfigurationsproblem
+                        return ;
+                    }
+                     
+                    //MessageBox.Show("Decrypted: " + Decr);
+                    
+                    
+                    SmtpServer.Credentials = new System.Net.NetworkCredential(_param.AppCfg_MailUsr, DecryptedPwd);
+
+                    // Temp Variable mit klartextpasswort überschreiben und dann auf null setzen. (Besser wäre Objekt erzeugen und dann dispose machen)
+                    DecryptedPwd = "";
+                    DecryptedPwd = null;
                 }                
 
                 // TLS aktiviert oder nicht?
@@ -432,7 +459,10 @@ namespace JoHeSupporter
             // Mail object entladen 
             // ( sonnst war beim zweiten aufruf der Handle auf die Screenshot datei noch offen -> TakeScreenshot Methode)
             mail.Dispose();
-            
+            // SmtpServer objekt entladen / damit werden auch anmeldedaten aus dem RAM entladen
+            SmtpServer.Dispose();
+
+
         }
 
 
@@ -472,17 +502,17 @@ namespace JoHeSupporter
             return alternateView;
         }
 
-        //private AlternateView getEmbeddedImage(String filePath)
-        //{
-        //    LinkedResource inline = new LinkedResource(filePath);
-        //    inline.ContentId = Guid.NewGuid().ToString();
-        //    string htmlBody = @"<img src='cid:" + inline.ContentId + @"'/>";
-        //    AlternateView alternateView = AlternateView.CreateAlternateViewFromString(htmlBody, null, MediaTypeNames.Text.Html);
-        //    alternateView.LinkedResources.Add(inline);
-        //    return alternateView;
-        //}
-
         #endregion Mail
+
+        #region EnryptPassword
+
+        public string EncryptPasswordForConfig(string _cleartext)
+        {
+            return Utilities.Encryption.AESEncryption.Encrypt(_cleartext, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
+
+        }
+        #endregion EnryptPassword
+
 
         #region Screenshot
 

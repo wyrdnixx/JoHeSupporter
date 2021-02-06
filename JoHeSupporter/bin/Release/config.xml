@@ -10,7 +10,7 @@
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
-    <MailPwd>johesupporterpassword</MailPwd>
+	<MailPwdEnc>OzliNdAkt/k+BgEtekTiTTSFgv4D3hbue8gkkfDC71E=</MailPwdEnc>
     <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
@@ -21,7 +21,11 @@
     <AttachFile>%temp%\test2.log</AttachFile>
 </appcfg>
 
-<!-- 
+<!--
+
+<MailPwdEnc>OzliNdAkt/k+BgEtekTiTTSFgv4D3hbue8gkkfDC71=!</MailPwdEnc>
+
+
 
 JoHeSupporter:
 Icon, das in der Titelzeile des aktiven Fensters liegt. Über einen Klick auf das Icon wird ein Screenshot erstellt und ein User-Dialog angezeigt.
@@ -54,8 +58,10 @@ UseMailAuth:
               Authentifizierung am Mailserver verwenden
 MailUsr:      
               User, der sich am Mail Server authentifizieren kann (normalerweise der User der die MailFrom Adresse hat.
-MailPwd:      
-              Passwort des MailUsr
+MailPwdEnc:      
+              Verschlüsseltes Passwort des MailUsr
+              -> Bitte diese Konfigurationszeile erzeugen in dem die JoHeSupporter.exe mit dem Parameter -encryptpwd gestartet wird.
+              z.B.:  c:\> JoHeSupporter.exe -encryptpwd
 CustomIconFile: 
               Eine Bilddatei die als Icon Verwendet werden soll. 
               Beispiel: <CustomIconFile>iconfile.png</CustomIconFile>

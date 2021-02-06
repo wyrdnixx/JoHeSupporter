@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -67,6 +68,12 @@
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SKGL, Version=2.0.5.3, Culture=neutral, PublicKeyToken=c2850a745143a030, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -87,6 +94,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUIChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIChangePassword.Designer.cs">
+      <DependentUpon>GUIChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +123,10 @@
     <Compile Include="UserDialog.Designer.cs">
       <DependentUpon>UserDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="GUIChangePassword.resx">
+      <DependentUpon>GUIChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
     </EmbeddedResource>

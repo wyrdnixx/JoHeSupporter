@@ -67,3 +67,4 @@ C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.User
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.csproj.GenerateResource.Cache
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.exe.manifest
 C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.application
+C:\MSVS_Workspace\ulewu\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.GUIChangePassword.resources
