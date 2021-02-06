@@ -26,6 +26,7 @@ namespace JoHeSupporter
         string appCfg_MailTo;
         string appCfg_MailUsr;
         string appCfg_MailPwd;
+        string appCfg_MailPwdEnc;
         string appCfg_UseUserMail;
         string appCfg_UseMailAuth;
         string appCfg_CustomIconFile;
@@ -318,6 +319,19 @@ namespace JoHeSupporter
             set
             {
                 appCfg_infoLinkURL = value;
+            }
+        }
+
+        public string AppCfg_MailPwdEnc
+        {
+            get
+            {
+                return appCfg_MailPwdEnc;
+            }
+
+            set
+            {
+                appCfg_MailPwdEnc = value;
             }
         }
     }

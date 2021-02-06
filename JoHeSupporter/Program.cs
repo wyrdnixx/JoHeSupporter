@@ -20,22 +20,26 @@ namespace JoHeSupporter
             //Objekte für Parameterklasse und Methodenklasse
             param param = new param();
 
+            param.Cfgxml = AppDomain.CurrentDomain.BaseDirectory +"config.xml";
 
-            if (args.Length == 0)       // wenn keine Argumente übergeben wurden...
+            methods methods = new methods(param);
+
+            // normaler Programmstart
+            if (args.Length == 0)
             {
-                // setze die default config.xml Datei
-                param.Cfgxml = AppDomain.CurrentDomain.BaseDirectory + "config.xml";
 
             }
-            else if (args.Length == 1)     // Wenn ein Parameter übergeben wurde setze diesen als Config.xml Datei
+            else if (args.Length == 1 && args[0] == "-encryptpwd")     // Wenn mit -encryptpwd passwort gestartet wurde
             {
+                // Mailpasswort verschlüsseln
+                Application.Run(new GUIChangePassword(methods));
 
-                param.Cfgxml = AppDomain.CurrentDomain.BaseDirectory + args[0].ToString();
-                
+                System.Environment.Exit(1);
+
             }
-            else if (args.Length > 1)       // Wenn mehr als ein Argument angegeben wurden.
+            else       // Wenn unguelltige Parameter uebergeben wurden
             {
-                MessageBox.Show("Programm wurde mit zu vielen Parametern gestartet. \nBitte nur die Konfigurationsdatei als Argument angeben.", "JoheSupporter");
+                MessageBox.Show("Programm wurde mit ungültigen Parametern gestartet. \n Bitte ohne parameter starten oder \n JoHeSupporter.exe -encryptpwd MeinMailPasswort \n um ein Email Passwort für die Config.xml zu erstellen.", "JoheSupporter");
                 System.Environment.Exit(1);
             }
 
@@ -51,7 +55,7 @@ namespace JoHeSupporter
              new Thread(() => Application.Run(new MessageBanner())).Start();
 
 
-            methods methods = new methods(param);
+
             param.UserMail = methods.getUserMail();
                         
             Application.Run(new GUI(methods));
