@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiteDB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -27,7 +28,13 @@ namespace JoHeSupporter
             // normaler Programmstart
             if (args.Length == 0)
             {
+                // Open database (or create if doesn't exist)
+                using (var db = new LiteDatabase(AppDomain.CurrentDomain.BaseDirectory + "MyData.db"))
+                {
+                    string nane = "hans";
+                   
 
+                }
             }
             else if (args.Length == 1 && args[0] == "-encryptpwd")     // Wenn mit -encryptpwd passwort gestartet wurde
             {

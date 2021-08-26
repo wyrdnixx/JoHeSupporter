@@ -1,29 +1,159 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Reflection;
-using System.IO;
-using System.Threading;
-using System.DirectoryServices.AccountManagement;
 using System.DirectoryServices;
+using System.DirectoryServices.AccountManagement;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace JoHeSupporter
 {
+
+    public class MessageObject
+    {
+
+        private String type;
+        private DateTime validFrom;
+        private DateTime validUntil;
+        private String validTo;
+        private int intervall;
+        private String messageText;
+        private Timer MessageTimer = new Timer();
+
+        public MessageObject(String _type, DateTime _validFrom, DateTime _validUntil, String _validTo, int _Intervall, String _MessageText)
+        {
+            this.type = _type;
+            this.validFrom = _validFrom;
+            this.validUntil = _validUntil;
+            this.validTo = _validTo;
+            this.intervall = _Intervall;
+            this.messageText = _MessageText;
+
+            
+            MessageTimer.Enabled = true;
+            MessageTimer.Interval = _Intervall;
+            MessageTimer.Tick += new EventHandler(DisplayMessage);
+      
+                        
+            
+        }
+
+        public void startTimer()
+        {
+            
+            MessageTimer.Start();
+        }
+        private void DisplayMessage(Object myObject, EventArgs myEventArgs)
+        {
+            Console.WriteLine("DisplayMessage: " + messageText);
+
+        }
+
+    }
+
     public partial class MessageBanner : Form
     {
 
+        private List<MessageObject> MessageCache = new List<MessageObject>();
+        
+
+
+        static readonly System.Windows.Forms.Timer TimerConfigReader = new System.Windows.Forms.Timer();
+
+
+        public MessageBanner()
+        {
+            InitializeComponent();
+            TimerConfigReader.Interval = 10000;
+            TimerConfigReader.Tick += new EventHandler(ConfigReader);
+            TimerConfigReader.Start();
+        }
+
+
+        private void ConfigReader(Object myObject, EventArgs myEventArgs)
+        {
+            Console.WriteLine("MessageCache count: " + MessageCache.Count);
+
+
+            StreamReader file = new StreamReader(File.Open(AppDomain.CurrentDomain.BaseDirectory + "MessageBanner.txt",
+                           FileMode.Open,
+                           FileAccess.Read,
+                           FileShare.ReadWrite));
+            // System.IO.StreamReader file = new System.IO.StreamReader(AppDomain.CurrentDomain.BaseDirectory + "MessageBanner.txt");
+
+            string line;
+
+            List<MessageObject> tmpList = new List<MessageObject>();
+
+            while ((line = file.ReadLine()) != null)
+            {
+                if (line.StartsWith("Info; ") || line.StartsWith("Warning; ") || line.StartsWith("Resolved; "))
+                {
+                    // Es wurde eine Bannerzeile gefunden
+
+                    try
+                    {
+
+                        int _gotIntervall;
+                        String[] ConfiguredMessage = line.Split(';');
+
+                        String MessageType = ConfiguredMessage[0];
+                        DateTime validFrom = DateTime.Parse(ConfiguredMessage[1]);
+                        DateTime validUntil = DateTime.Parse(ConfiguredMessage[2]);
+                        int Intervall = int.Parse(ConfiguredMessage[3]) * 1000;
+                        String validTo = ConfiguredMessage[4];
+                        String MessageText = ConfiguredMessage[5];
+
+                        Console.WriteLine("Message aus Config File: " + MessageType + " - " + validFrom + " - " + validUntil + " - " + validTo + " - " + MessageText);
+
+                        MessageObject msg = new MessageObject(MessageType, validFrom, validUntil, validTo, Intervall, MessageText);
+
+                        // ToDo: Message Timer muss raus genommen werden - Wird sonnst nicht als bereits vorhanden erkannt
+                        // Gelesene Message schon vorhanden?
+                        if (!MessageCache.Contains(msg))
+                        {
+                            tmpList.Add(msg);
+                            msg.startTimer();
+                        }
+                        
+
+                    }catch(Exception e)
+                    { Console.WriteLine("Fehler in MessageBanner Config: " + e.Message, "MessageBanner Config error"); }
+
+                    }
+            }
+            file.Close();
+
+            file.Dispose();
+
+            
+
+            MessageCache = tmpList;
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// ////////// Vor Refactor MessageBanner.cs
+        /// </summary>
+
+
         static System.Windows.Forms.Timer bannerUpdateTimer = new System.Windows.Forms.Timer();
         static System.Windows.Forms.Timer bannerScrollingTimer = new System.Windows.Forms.Timer();
-
-        // nur für die While-Schleife des Timers
-        //static bool exitFlag = false;
-        
+                
         // wurde ein Banner zum Anzeigen in der Datei gefunden?
         bool MessageBannerFound = false;
 
@@ -31,8 +161,7 @@ namespace JoHeSupporter
 
         List<String> MessagesList = new List<String>();
 
-        //static string MessageType;
-        //static string MessageText;
+        
 
         // DefaultIntervall - wird durch Message überschrieben, wenn eine Meldungszeile gesetzt ist.
         //static int DefaultIntervall = 60;
@@ -42,7 +171,8 @@ namespace JoHeSupporter
         // Liste der Messages die für einen Client angezeigt werden sollen.
         List<MessageToShow> msgList = new List<MessageToShow>();
 
-        public MessageBanner()
+        //public MessageBanner()
+        public void MessageBannerOld()
         {
             InitializeComponent();
             
