@@ -32,7 +32,7 @@ namespace JoHeSupporter
         private void textchanged(object sender, EventArgs e)
         {
             //string Encr = Utilities.Encryption.AESEncryption.Encrypt(_param.AppCfg_MailPwdEnc, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
-            tb_encrypedpwd.Text = "<MailPwdEnc>"+ Utilities.Encryption.AESEncryption.Encrypt(tb_clearpwd.Text, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256)+"</MailPwdEnc>";
+            tb_encrypedpwd.Text = "<MailPwdEnc>"+ Utilities.AESEncryption.Encrypt(tb_clearpwd.Text, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256)+"</MailPwdEnc>";
         }
     }
 }

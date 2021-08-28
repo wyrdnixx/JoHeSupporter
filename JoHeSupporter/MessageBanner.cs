@@ -20,6 +20,9 @@ namespace JoHeSupporter
         private int intervall;
         private String messageText;
         private Timer MessageTimer = new Timer();
+        public String Hash;
+        
+
 
         public MessageObject(String _type, DateTime _validFrom, DateTime _validUntil, String _validTo, int _Intervall, String _MessageText)
         {
@@ -29,24 +32,31 @@ namespace JoHeSupporter
             this.validTo = _validTo;
             this.intervall = _Intervall;
             this.messageText = _MessageText;
-
-            
-            MessageTimer.Enabled = true;
+                       
             MessageTimer.Interval = _Intervall;
             MessageTimer.Tick += new EventHandler(DisplayMessage);
-      
-                        
+
+            this.Hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + messageText);
+
+            this.StartTimer();
+        }
+
+
+
+        public void StartTimer()
+        {            
+            MessageTimer.Start();
+        }
+        public void StopTimer()
+        {
+            MessageTimer.Stop();
             
         }
 
-        public void startTimer()
-        {
-            
-            MessageTimer.Start();
-        }
         private void DisplayMessage(Object myObject, EventArgs myEventArgs)
         {
-            Console.WriteLine("DisplayMessage: " + messageText);
+            
+                Console.WriteLine(Hash + " : DisplayMessage: " + messageText);
 
         }
 
@@ -84,7 +94,7 @@ namespace JoHeSupporter
 
             string line;
 
-            List<MessageObject> tmpList = new List<MessageObject>();
+           List<String> actualHashList = new List<String>();
 
             while ((line = file.ReadLine()) != null)
             {
@@ -95,7 +105,7 @@ namespace JoHeSupporter
                     try
                     {
 
-                        int _gotIntervall;
+                        //int _gotIntervall;
                         String[] ConfiguredMessage = line.Split(';');
 
                         String MessageType = ConfiguredMessage[0];
@@ -107,16 +117,32 @@ namespace JoHeSupporter
 
                         Console.WriteLine("Message aus Config File: " + MessageType + " - " + validFrom + " - " + validUntil + " - " + validTo + " - " + MessageText);
 
-                        MessageObject msg = new MessageObject(MessageType, validFrom, validUntil, validTo, Intervall, MessageText);
 
-                        // ToDo: Message Timer muss raus genommen werden - Wird sonnst nicht als bereits vorhanden erkannt
-                        // Gelesene Message schon vorhanden?
-                        if (!MessageCache.Contains(msg))
+
+                        String hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + MessageText);
+                        Console.WriteLine("calculated Hash: " + hash);
+                        actualHashList.Add(hash);
+                        if ( CheckValidTarget(validFrom, validUntil, validTo))
                         {
-                            tmpList.Add(msg);
-                            msg.startTimer();
-                        }
-                        
+                               
+                            
+                            //// ToDo : funktioniert nicht - wird immer noch mehrfach erzeugt
+                            
+                            bool allreadyExists = false;                            
+                            foreach ( MessageObject x in MessageCache )
+                            {
+                                if (x.Hash == hash) { allreadyExists = true; };
+                            }
+
+                            if (!allreadyExists)
+                            {
+                                MessageCache.Add(new MessageObject(MessageType, validFrom, validUntil, validTo, Intervall, MessageText));
+                                //MessageObject msg = ;
+                                //msg.startTimer();
+                                //tmpList.Add(msg);
+                                
+                            }
+                        }                        
 
                     }catch(Exception e)
                     { Console.WriteLine("Fehler in MessageBanner Config: " + e.Message, "MessageBanner Config error"); }
@@ -127,16 +153,92 @@ namespace JoHeSupporter
 
             file.Dispose();
 
-            
+            //cleanup
+            try
+            {
 
-            MessageCache = tmpList;
+
+                foreach (MessageObject x in MessageCache)
+                {
+                    bool stillValid = false;
+                    foreach (String h in actualHashList)
+                    {
+                        if (x.Hash == h) { stillValid = true; }
+                    }
+
+                    if (!stillValid)
+                    {
+                        x.StopTimer();
+                        MessageCache.Remove(x);
+                    }
+                }
+            }
+            catch (Exception) { //nothing - MessageCache maybe changed
+                                };
 
         }
 
 
 
 
+        private bool CheckValidTarget(DateTime validFrom, DateTime validUntil, String validTo)
+        {
+            //check for valid timerange
+            DateTime now = DateTime.Now;
+            if (validFrom < now && validUntil > now) 
+            {
+                // nothing
+            } else
+            {
+                // not in valid timerange
+                return false;
+            }
 
+
+            String TargetType = validTo.Split('[', ']')[1];
+            String Target = validTo.Split(']')[1];
+            Console.WriteLine("TargetType : >" + TargetType + "<" + " & " + "Target: >" + Target + "<");
+            
+
+            // ToDo: validate if any criteria matches - not only last from list
+
+            switch (TargetType)
+            {
+                case "*": // meldung gillt für alle 
+                    return true;
+                case "U":
+                    //Console.WriteLine("Current User: " + Environment.UserName.Trim().ToLower());
+                    //Console.WriteLine("Target User: " + Target.Trim().ToLower());
+                    if (Environment.UserName.Trim().ToLower() == Target.Trim().ToLower())
+                    {
+                        return true;
+                    }
+                    break;
+                case "AD":
+                    String ADField = Target.Split('(', ')')[1];
+                    String ADString = Target.Split(')')[1];
+
+                    String adResult = adCheckField(ADField).ToLower().Trim();
+                    if (adResult == ADString.ToLower().Trim())
+                    {
+                        return true;
+                    }
+                    break;
+                case "G":
+
+                    if (adCheckGroup(Target))
+                    {
+                        Console.WriteLine("AD-Group found: " + Target);
+                        return true;
+                    }
+                    break;
+                default:
+                    return false;
+            }
+
+            // last resort
+            return false;
+        }
 
 
 
@@ -390,7 +492,7 @@ namespace JoHeSupporter
                     Intervall = _gotIntervall * 1000;
                 
                 //Console.WriteLine("Targets: " + MessageTargets);
-                MessageBannerFound = checkValidTarget(MessageTargets);                
+                MessageBannerFound = checkValidTargetOLD(MessageTargets);                
 
 
                     // nur wenn Messagebanner falide ist und das Intervall richtig gelesen werden konnte.
@@ -436,7 +538,7 @@ namespace JoHeSupporter
         }
 
 
-        private bool checkValidTarget (String _MessageTargets)
+        private bool checkValidTargetOLD (String _MessageTargets)
         {
             String TargetType = _MessageTargets.Split('[', ']')[1];
             Console.WriteLine("TargetType : >" + TargetType + "<");

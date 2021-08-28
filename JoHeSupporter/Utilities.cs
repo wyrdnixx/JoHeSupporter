@@ -26,7 +26,7 @@ using System.Security.Cryptography;
 using System.Text;
 #endregion
 
-namespace Utilities.Encryption
+namespace Utilities
 {
     /// <summary>
     /// Utility class that handles encryption
@@ -122,6 +122,40 @@ namespace Utilities.Encryption
             SymmetricKey.Clear();
             return Encoding.UTF8.GetString(PlainTextBytes, 0, ByteCount);
         }
+
+        #endregion
+
+     
+
+    }
+
+    public static class General
+    {
+        #region allgemeines
+
+        /// <summary>
+        /// Gibt einen MD5 Hash als String zurück
+        /// </summary>
+        /// <param name="CreateMD5">string der Gehasht werden soll.</param>
+        /// <returns>Hash als string.</returns>
+        public static string CreateMD5(string input)
+        {
+            // Use input string to calculate MD5 hash
+            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+            {
+                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                // Convert the byte array to hexadecimal string
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("X2"));
+                }
+                return sb.ToString();
+            }
+        }
+
 
         #endregion
     }
