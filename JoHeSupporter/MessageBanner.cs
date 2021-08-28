@@ -14,9 +14,9 @@ namespace JoHeSupporter
     {
 
         private String type;
-        private DateTime validFrom;
-        private DateTime validUntil;
-        private String validTo;
+        public DateTime validFrom;
+        public DateTime validUntil;
+        public String validTo;
         private int intervall;
         private String messageText;
         private Timer MessageTimer = new Timer();
@@ -39,7 +39,15 @@ namespace JoHeSupporter
             this.Hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + messageText);
            this.banner = new Banner(messageText);
 
+
+            if (type  == "Info") { banner.BackColor = Color.LightBlue; }
+            if (type  == "Resolved") { banner.BackColor = Color.LightGreen; }
+            if (type  == "Warning") { banner.BackColor = Color.OrangeRed; }
+
+
             this.StartTimer();
+            // show first time ist generated
+            banner.Show();
         }
 
 
@@ -168,7 +176,7 @@ namespace JoHeSupporter
                         if (x.Hash == h) { stillValid = true; }
                     }
 
-                    if (!stillValid)
+                    if (!stillValid || !CheckValidTarget(x.validFrom, x.validUntil, x.validTo))
                     {
                         x.DisposeMessageBanner();
                         MessageCache.Remove(x);

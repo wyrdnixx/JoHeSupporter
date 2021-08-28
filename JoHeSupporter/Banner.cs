@@ -13,10 +13,13 @@ namespace JoHeSupporter
     public partial class Banner : Form
     {
         private String MessageText;
+        private Timer bannerScrollingTimer = new Timer();
 
         public Banner(String _MessageText)
         {
             InitializeComponent();
+            bannerScrollingTimer.Interval = 2;
+            bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
             this.MessageText = _MessageText;
         }
 
@@ -67,9 +70,47 @@ namespace JoHeSupporter
             this.btnClose.Width = this.Size.Height;
             this.btnClose.Height = this.Size.Height;
 
-            
+
+            // wenn der Banner länger als die Bildschirmbreite ist...
+            if (this.lbl_MessageText.Width > SystemInformation.VirtualScreen.Width)
+            {
+                // Wenn der Scrolling-Timer nicht schon läuft (wird sonnst doppelt gestartet)
+                if (bannerScrollingTimer.Enabled == false)
+                {
+                    //bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
+                    //                    bannerScrollingTimer.Interval = 100;  // jetzt oben global eingestellt.
+                    //Console.WriteLine(bannerScrollingTimer.Interval);
+                    bannerScrollingTimer.Start();
+                }
+
+            }
+            else { this.lbl_MessageText.Left = 40; bannerScrollingTimer.Stop(); }
+
 
         }
+
+
+
+        private void bannerScrollingTimerEvent(Object myObject,
+                                            EventArgs myEventArgs)
+        {
+
+            //Console.WriteLine("Scroller");
+            // Scrollen
+            this.lbl_MessageText.Left = this.lbl_MessageText.Left - 1;
+
+            // wenn der Banner ganz links angekommen ist, dann wieder ganz rechts anfangen..
+            if (this.lbl_MessageText.Right <= 0)
+            {
+                this.lbl_MessageText.Left = SystemInformation.VirtualScreen.Width;
+            }
+
+
+
+
+
+        }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
