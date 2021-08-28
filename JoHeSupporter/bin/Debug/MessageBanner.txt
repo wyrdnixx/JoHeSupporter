@@ -31,9 +31,8 @@
 
 
 #Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]ulewu ; Test-Meldung User Ulewu
-#Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info Meldung
-Info; 28.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info Meldung future
-
+Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info Meldung
+Resolved; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Resolved Meldung
 
 ## OLD
 #Info; 5 ; [AD](Department)EDV ; Test-Meldung EDV

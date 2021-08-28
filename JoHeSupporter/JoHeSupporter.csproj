@@ -98,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banner.Designer.cs">
+      <DependentUpon>Banner.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
       <DependentUpon>UserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="Banner.resx">
+      <DependentUpon>Banner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIChangePassword.resx">
       <DependentUpon>GUIChangePassword.cs</DependentUpon>
     </EmbeddedResource>

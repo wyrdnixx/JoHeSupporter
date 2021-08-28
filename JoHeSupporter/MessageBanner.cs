@@ -21,7 +21,7 @@ namespace JoHeSupporter
         private String messageText;
         private Timer MessageTimer = new Timer();
         public String Hash;
-        
+        private Banner banner;
 
 
         public MessageObject(String _type, DateTime _validFrom, DateTime _validUntil, String _validTo, int _Intervall, String _MessageText)
@@ -37,6 +37,7 @@ namespace JoHeSupporter
             MessageTimer.Tick += new EventHandler(DisplayMessage);
 
             this.Hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + messageText);
+           this.banner = new Banner(messageText);
 
             this.StartTimer();
         }
@@ -47,9 +48,10 @@ namespace JoHeSupporter
         {            
             MessageTimer.Start();
         }
-        public void StopTimer()
+        public void DisposeMessageBanner()
         {
             MessageTimer.Stop();
+            banner.Dispose();
             
         }
 
@@ -57,7 +59,7 @@ namespace JoHeSupporter
         {
             
                 Console.WriteLine(Hash + " : DisplayMessage: " + messageText);
-
+            if(!banner.Visible) { banner.Show(); }
         }
 
     }
@@ -168,7 +170,7 @@ namespace JoHeSupporter
 
                     if (!stillValid)
                     {
-                        x.StopTimer();
+                        x.DisposeMessageBanner();
                         MessageCache.Remove(x);
                     }
                 }
