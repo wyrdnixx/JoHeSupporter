@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Icon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="JoHeSupporter" version="2.0.3.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="JoHeSupporter" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="JoHeSupporter.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="577536">
-      <assemblyIdentity name="JoHeSupporter" version="2.0.3.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="574464">
+      <assemblyIdentity name="JoHeSupporter" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>GclsSkWpOGiBg+4TclfCpZsJzlcL8WSd8O1tlO2as/A=</dsig:DigestValue>
+        <dsig:DigestValue>RgR/5aexl+V+63pbltA2UHgFuw6WVJRPs8vVxDJU+xQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -105,13 +105,13 @@
       <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="MessageBanner.txt" size="1972">
+  <file name="MessageBanner.txt" size="1502">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6+RPMoMp3jhM4fb4h/dE+9HdkOqMnsSKZG8d2+yH38g=</dsig:DigestValue>
+      <dsig:DigestValue>MfXhaqzqUthIoFZvqnC4iyFLvEg+NNy1cMbiF+lg2BU=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>
