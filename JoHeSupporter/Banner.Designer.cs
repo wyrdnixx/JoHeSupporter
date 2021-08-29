@@ -29,26 +29,16 @@ namespace JoHeSupporter
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbl_MessageText_OLD = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.lbl_MessageText = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
-            // 
-            // lbl_MessageText_OLD
-            // 
-            this.lbl_MessageText_OLD.AutoSize = true;
-            this.lbl_MessageText_OLD.Location = new System.Drawing.Point(158, 99);
-            this.lbl_MessageText_OLD.Name = "lbl_MessageText_OLD";
-            this.lbl_MessageText_OLD.Size = new System.Drawing.Size(87, 13);
-            this.lbl_MessageText_OLD.TabIndex = 0;
-            this.lbl_MessageText_OLD.Text = "lbl_MessageText";
             // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(117, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 1;
+            this.btnClose.TabIndex = 0;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -70,7 +60,6 @@ namespace JoHeSupporter
             this.ControlBox = false;
             this.Controls.Add(this.lbl_MessageText);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.lbl_MessageText_OLD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Banner";
             this.Text = "Banner";
@@ -80,8 +69,6 @@ namespace JoHeSupporter
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lbl_MessageText_OLD;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.LinkLabel lbl_MessageText;
     }

@@ -37,12 +37,7 @@ namespace JoHeSupporter
             MessageTimer.Tick += new EventHandler(DisplayMessage);
 
             this.Hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + messageText);
-           this.banner = new Banner(messageText);
-
-
-            if (type  == "Info") { banner.BackColor = Color.LightBlue; }
-            if (type  == "Resolved") { banner.BackColor = Color.LightGreen; }
-            if (type  == "Warning") { banner.BackColor = Color.OrangeRed; }
+           this.banner = new Banner(messageText, type);
 
 
             this.StartTimer();

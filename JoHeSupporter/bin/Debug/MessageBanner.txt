@@ -23,12 +23,12 @@
 ##
 # Beispiele 
 # Info; 26.08.2021 00:00; 30.08.2021 23:59; 60 ; [G]DPSUsers ; Info : Heute Systemupdate ab 12:00 Uhr  - Wartungsfenster von 12:00 UHr bis 13:00 Uhr
-# Warnung; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [*] ; Warnung - Großstörung an alle
+# Warning; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [*] ; Warnung - Großstörung an alle
 # Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]mayer.peter ; Test-Meldung User mayer.peter
 
 
 
 #Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]ulewu ; Test-Meldung User Ulewu
-Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info Link Label https://ulewu.de - oder http://google.de
-#Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info no Link ulewu.de
-
+Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info - A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront() method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront()  Alternativer Link: http://google.de method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.Bittte hier schauen: https://ulewu.de -
+#Warning; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Warnung vor dem Hunde! A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront() method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront() method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.
+#Resolved; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Hund will nur spielen.

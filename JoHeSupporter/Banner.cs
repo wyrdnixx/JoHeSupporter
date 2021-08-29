@@ -15,13 +15,15 @@ namespace JoHeSupporter
     {
         private String MessageText;
         private Timer bannerScrollingTimer = new Timer();
+        private String type;
 
-        public Banner(String _MessageText)
+        public Banner(String _MessageText, String _type)
         {
             InitializeComponent();
             bannerScrollingTimer.Interval = 2;
             bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
             this.MessageText = _MessageText;
+            this.type = _type;
         }
 
         protected override void OnShown(EventArgs e)
@@ -35,6 +37,17 @@ namespace JoHeSupporter
             // Force Banner on top / in front of other windows
             this.TopMost = true;
 
+            // longer text enables scrolling - prevent from scroll over closebutton
+            btnClose.BringToFront();
+
+            // set colors for tpyes of banners
+            if (type == "Info") { this.BackColor = Color.LightSeaGreen; }
+            if (type == "Resolved") {this.BackColor = Color.LimeGreen; }
+            if (type == "Warning") { this.BackColor = Color.Coral; }
+
+
+
+            // set text
             this.lbl_MessageText.Text = MessageText;
 
             // If text contains links - make them clickable
