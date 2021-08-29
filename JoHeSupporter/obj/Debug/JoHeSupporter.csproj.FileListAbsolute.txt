@@ -87,8 +87,6 @@ C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug
 C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.csproj.CopyComplete
 C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.exe
 C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.pdb
-C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Debug\LiteDB.dll
-C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Debug\LiteDB.xml
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.MessageObject.resources
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.csproj.AssemblyReference.cache
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.Banner.resources

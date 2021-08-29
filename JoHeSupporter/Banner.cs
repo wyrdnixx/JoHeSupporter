@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,9 +32,31 @@ namespace JoHeSupporter
             this.Top = 0;
             this.Left = 0;
 
+            // Force Banner on top / in front of other windows
+            this.TopMost = true;
+
             this.lbl_MessageText.Text = MessageText;
 
-            int heigth = (SystemInformation.VirtualScreen.Height / 100);
+            // If text contains links - make them clickable
+            if (this.lbl_MessageText.Text.IndexOf("http://") != -1 | this.lbl_MessageText.Text.IndexOf("https://") != -1)
+            {
+                this.lbl_MessageText.Enabled = true;
+                
+                foreach(Match m in Regex.Matches(this.lbl_MessageText.Text, @"(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?"))
+                {
+                    Console.WriteLine("Found URL in text: " + m.ToString());
+                    this.lbl_MessageText.Links.Add(m.Index, m.Length, m.ToString());                    
+                }
+                // Link länge im Text
+//                this.lbl_MessageText.Links.Add(this.lbl_MessageText.Text.IndexOf("http"), found.Length, found.ToString());
+                this.lbl_MessageText.LinkClicked += new LinkLabelLinkClickedEventHandler(lbl_MessageText_LinkClicked);
+
+            } else
+            { // disable link function if no links found
+                this.lbl_MessageText.Enabled = false;
+            }
+
+                int heigth = (SystemInformation.VirtualScreen.Height / 100);
 
             // MessageBox.Show("Heigth: " + heigth);
 
@@ -88,8 +111,19 @@ namespace JoHeSupporter
 
 
         }
+        /// <summary>
+        /// Link in text is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbl_MessageText_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e)        
+        {
+            string target = e.Link.LinkData as string;
+            System.Diagnostics.Process.Start(target);
 
-
+            // schließe Banner nach dem Link geklickt wurde
+            this.Visible = false;
+        }
 
         private void bannerScrollingTimerEvent(Object myObject,
                                             EventArgs myEventArgs)

@@ -29,4 +29,6 @@
 
 
 #Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]ulewu ; Test-Meldung User Ulewu
-Info; 26.08.2021 00:00; 30.08.2021 23:59; 2 ; [U]ulewu ; Info Meldung
+Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info Link Label https://ulewu.de - oder http://google.de
+#Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info no Link ulewu.de
+
