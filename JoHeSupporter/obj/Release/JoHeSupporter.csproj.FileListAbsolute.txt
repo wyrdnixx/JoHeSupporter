@@ -55,3 +55,4 @@ C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Relea
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.CopyComplete
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.pdb
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.AssemblyReference.cache

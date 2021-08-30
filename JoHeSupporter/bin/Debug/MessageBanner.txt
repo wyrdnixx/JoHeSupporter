@@ -29,6 +29,6 @@
 
 
 #Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]ulewu ; Test-Meldung User Ulewu
-Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info - A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront() method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront()  Alternativer Link: http://google.de method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.Bittte hier schauen: https://ulewu.de -
-#Warning; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Warnung vor dem Hunde! A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront() method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.A dirty way of dealing with this is setting a timer and everytime it ticks use the .BringToFront() method on the control, you can also add multiple controls you wish to perform this on and can arrange them however you like.
+Info; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Info - Bittte hier schauen: https://ulewu.de - Alternativer  Link: htxtp://google.de
+#Warning; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Warnung vor dem Hunde!
 #Resolved; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Hund will nur spielen.

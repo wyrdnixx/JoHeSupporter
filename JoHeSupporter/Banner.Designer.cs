@@ -30,7 +30,7 @@ namespace JoHeSupporter
         private void InitializeComponent()
         {
             this.btnClose = new System.Windows.Forms.Button();
-            this.lbl_MessageText = new System.Windows.Forms.LinkLabel();
+            this.linklbl_MessageText = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // btnClose
@@ -44,13 +44,13 @@ namespace JoHeSupporter
             // 
             // lbl_MessageText
             // 
-            this.lbl_MessageText.AutoSize = true;
-            this.lbl_MessageText.Location = new System.Drawing.Point(243, 22);
-            this.lbl_MessageText.Name = "lbl_MessageText";
-            this.lbl_MessageText.Size = new System.Drawing.Size(55, 13);
-            this.lbl_MessageText.TabIndex = 2;
-            this.lbl_MessageText.TabStop = true;
-            this.lbl_MessageText.Text = "linkLabel1";
+            this.linklbl_MessageText.AutoSize = true;
+            this.linklbl_MessageText.Location = new System.Drawing.Point(243, 22);
+            this.linklbl_MessageText.Name = "lbl_MessageText";
+            this.linklbl_MessageText.Size = new System.Drawing.Size(55, 13);
+            this.linklbl_MessageText.TabIndex = 2;
+            this.linklbl_MessageText.TabStop = true;
+            this.linklbl_MessageText.Text = "linkLabel1";
             // 
             // Banner
             // 
@@ -58,7 +58,7 @@ namespace JoHeSupporter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(676, 324);
             this.ControlBox = false;
-            this.Controls.Add(this.lbl_MessageText);
+            this.Controls.Add(this.linklbl_MessageText);
             this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Banner";
@@ -70,6 +70,6 @@ namespace JoHeSupporter
 
         #endregion
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.LinkLabel lbl_MessageText;
+        private System.Windows.Forms.LinkLabel linklbl_MessageText;
     }
 }
