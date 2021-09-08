@@ -61,11 +61,19 @@ namespace JoHeSupporter
 
 
                     // ToDo : Tests change link text - not completed
-                    this.linklbl_MessageText.Text = this.linklbl_MessageText.Text.Remove(m.Index, m.Length);
-                    this.linklbl_MessageText.Text = this.linklbl_MessageText.Text.Insert(m.Index, "!LFLFLF");
+                    // exception if two links are present
+                    try
+                    {
+                        this.linklbl_MessageText.Text = this.linklbl_MessageText.Text.Remove(m.Index, m.Length);
+                        this.linklbl_MessageText.Text = this.linklbl_MessageText.Text.Insert(m.Index, m.ToString());
 
-                    this.linklbl_MessageText.Links.Add(m.Index, m.Length, m.ToString());
-                    this.linklbl_MessageText.Links[0].LinkData =  m.ToString();                    
+                        this.linklbl_MessageText.Links.Add(m.Index, m.Length, m.ToString());
+                        this.linklbl_MessageText.Links[0].LinkData = m.ToString();
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine("Exception on Link: \n" + this.linklbl_MessageText.Text + "\n" + m.ToString() + "\n" + ex.Message);
+                    }
+                    
 
 
                 }
