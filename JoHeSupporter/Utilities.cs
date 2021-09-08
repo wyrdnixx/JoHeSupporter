@@ -129,7 +129,7 @@ namespace Utilities
 
     }
 
-    public static class General
+    public static class helpers
     {
         #region allgemeines
 

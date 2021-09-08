@@ -9,8 +9,9 @@ using System.Windows.Forms;
 
 namespace JoHeSupporter
 {
+    
 
-    public class MessageObject
+public class MessageObject
     {
 
         private String type;
@@ -23,6 +24,8 @@ namespace JoHeSupporter
         public String Hash;
         private Banner banner;
 
+        
+        
 
         public MessageObject(String _type, DateTime _validFrom, DateTime _validUntil, String _validTo, int _Intervall, String _MessageText)
         {
@@ -32,12 +35,18 @@ namespace JoHeSupporter
             this.validTo = _validTo;
             this.intervall = _Intervall;
             this.messageText = _MessageText;
-                       
-            MessageTimer.Interval = _Intervall;
+
+
+             
+
+        MessageTimer.Interval = _Intervall;
             MessageTimer.Tick += new EventHandler(DisplayMessage);
 
-            this.Hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + messageText);
-           this.banner = new Banner(messageText, type);
+
+            // this.Hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + messageText);
+            this.Hash = Utilities.helpers.CreateMD5(this.type + this.validFrom.ToString() + this.validUntil.ToString() + this.intervall.ToString() + this.validTo + this.messageText);
+
+            this.banner = new Banner(messageText, type);
 
 
             this.StartTimer();
@@ -81,6 +90,7 @@ namespace JoHeSupporter
         {
             InitializeComponent();
       
+            // Read config intervall (10000 = 10 seconds)
             TimerConfigReader.Interval = 10000;
             TimerConfigReader.Tick += new EventHandler(ConfigReader);
             TimerConfigReader.Start();
@@ -153,7 +163,8 @@ namespace JoHeSupporter
 
 
 
-                        String hash = Utilities.General.CreateMD5(validFrom.ToString() + validUntil.ToString() + validTo + MessageText);
+                        String hash = Utilities.helpers.CreateMD5(MessageType + validFrom.ToString() + validUntil.ToString() + Intervall.ToString() + validTo + MessageText);
+
                         Console.WriteLine("calculated Hash: " + hash);
                         actualHashList.Add(hash);
                         if ( CheckValidTarget(validFrom, validUntil, validTo))
@@ -357,6 +368,10 @@ namespace JoHeSupporter
             return "";
 
         }
+
+
+
+
     /*    private string GetPropertyByName(Principal principal, string propertyName)
         {
 
