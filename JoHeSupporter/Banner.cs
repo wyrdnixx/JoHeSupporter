@@ -16,6 +16,7 @@ namespace JoHeSupporter
         private String MessageText;
         private Timer bannerScrollingTimer = new Timer();
         private String type;
+        private bool BigBanner;
 
         public Banner(String _MessageText, String _type)
         {
@@ -24,28 +25,15 @@ namespace JoHeSupporter
             bannerScrollingTimer.Tick += new EventHandler(bannerScrollingTimerEvent);
             this.MessageText = _MessageText;
             this.type = _type;
+
+            // ToDo - Test - set fixed BigBanner
+            this.BigBanner = true;
         }
 
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
-            //this.Hide();
-            // this.TopMost = true;
-            this.Top = 0;
-            this.Left = 0;
-
-            // Force Banner on top / in front of other windows
-            this.TopMost = true;
-
-            // longer text enables scrolling - prevent from scroll over closebutton
-            btnClose.BringToFront();
-
-            // set colors for tpyes of banners
-            if (type == "Info") { this.BackColor = Color.LightSeaGreen; }
-            if (type == "Resolved") {this.BackColor = Color.LimeGreen; }
-            if (type == "Warning") { this.BackColor = Color.Coral; }
-
-
+            
 
             // set text
             this.linklbl_MessageText.Text = MessageText;
@@ -86,24 +74,58 @@ namespace JoHeSupporter
                 this.linklbl_MessageText.Enabled = false;
             }
 
+
+            #region BannerProperties
+         
+            // Force Banner on top / in front of other windows
+            this.TopMost = true;
+            this.Opacity = .75;
+
+            // longer text enables scrolling - prevent from scroll over closebutton
+            btnClose.BringToFront();
+
+            // set colors for tpyes of banners
+            if (type == "Info") { this.BackColor = Color.LightSeaGreen; }
+            if (type == "Resolved") { this.BackColor = Color.LimeGreen; }
+            if (type == "Warning") { this.BackColor = Color.Coral; }
+
+
+
+            // ToDo : Test BigBanner fixed
+            BigBanner = false;
+
+            // BigBanner or topscreen            
+            if (BigBanner)
+            {
+                this.Top = (SystemInformation.VirtualScreen.Height / 5);
+                int heigth = (SystemInformation.VirtualScreen.Height / 2);
+                this.linklbl_MessageText.Font = new Font("Arial", this.Height / 2);
+                this.Size = new Size(SystemInformation.VirtualScreen.Width, heigth);
+            } else
+            {
+                this.Top = 0;
                 int heigth = (SystemInformation.VirtualScreen.Height / 100);
+                // ToDo - passt die größe?
+                this.linklbl_MessageText.Font = new Font("Arial", heigth);
+                this.Size = new Size(SystemInformation.VirtualScreen.Width, heigth);
+            }
 
-            // MessageBox.Show("Heigth: " + heigth);
-
-            this.Size = new Size(SystemInformation.VirtualScreen.Width, heigth);
-            /*  this.lbl_CloseBanner.Top = 3;
-              this.lbl_CloseBanner.Left = 3;
-              this.lbl_CloseBanner.Font = new Font("Arial", heigth * 2, FontStyle.Bold);*/
+            
+            
+            this.Left = 0;                        
             this.ShowInTaskbar = false;
+
+
+            #endregion BannerProperties
 
             this.linklbl_MessageText.Top = 3;
             this.linklbl_MessageText.Left = 40;
             //  this.lbl_MessageText.Font = new Font("Arial", heigth, FontStyle.Bold);
 
-            //this.lbl_MessageText.Font = new Font("Arial", this.Width/ 8);
-            this.linklbl_MessageText.Font = new Font("Arial", this.Height / 2);
+            //
+            
 
-            //MessageBox.Show("Heigth: " + this.lbl_MessageText.Font.Height);
+
 
 
             this.btnClose.BackgroundImageLayout = ImageLayout.Stretch;

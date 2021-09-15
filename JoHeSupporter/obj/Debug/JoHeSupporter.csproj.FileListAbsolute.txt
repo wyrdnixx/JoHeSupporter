@@ -89,3 +89,4 @@ C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug
 C:\Users\ulewu.CHAOS\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.pdb
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.MessageObject.resources
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.Banner.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Debug\JoHeSupporter.csproj.AssemblyReference.cache
