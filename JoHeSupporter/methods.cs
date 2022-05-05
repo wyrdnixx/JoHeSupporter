@@ -414,7 +414,7 @@ namespace JoHeSupporter
                     string DecryptedPwd="";
                     try
                     {
-                        DecryptedPwd = Utilities.Encryption.AESEncryption.Decrypt(_param.AppCfg_MailPwdEnc, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
+                        DecryptedPwd = Utilities.AESEncryption.Decrypt(_param.AppCfg_MailPwdEnc, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
                     }catch (Exception e)
                     {
                         MessageBox.Show("Konfigurationsproblem: \nDas Passwort aus der Konfiguration konnte nicht entschlüsselt werden.\n\nIhre Supportanfrage konnte leider nicht gesendet werden.");
@@ -508,7 +508,7 @@ namespace JoHeSupporter
 
         public string EncryptPasswordForConfig(string _cleartext)
         {
-            return Utilities.Encryption.AESEncryption.Encrypt(_cleartext, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
+            return Utilities.AESEncryption.Encrypt(_cleartext, "JoHeSupporterEncryptioniPassword", "SaltString§$%&", "SHA1", 2, "16CHARSLONG12345", 256);
 
         }
         #endregion EnryptPassword

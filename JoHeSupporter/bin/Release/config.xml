@@ -10,7 +10,7 @@
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>johesupporter</MailUsr>  
-	<MailPwdEnc>OzliNdAkt/k+BgEtekTiTTSFgv4D3hbue8gkkfDC71E=</MailPwdEnc>
+    <MailPwdEnc>OzliNdAkt/k+BgEtekTiTTSFgv4D3hbue8gkkfDC71=!</MailPwdEnc>
     <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>

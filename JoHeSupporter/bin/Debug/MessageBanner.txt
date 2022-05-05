@@ -1,14 +1,14 @@
 ﻿#######################################
 # MessageBanner Datei für JoHeSupporter
 #
-# (c) 2020 Johannes Hehn 
+# (c) 2021 Johannes Hehn 
 #######################################
 #
 # Zeige Info oder Alarmmeldungen am Bildschirm
 #
 # Beispielzeile;
-# Info; 5 ; Dies ist eine Info-Meldung
-# [Typ]; [Intervall] ; <Ziel> ;[Text]
+# Info;		26.08.2021 00:00;		30.08.2021 23:59;			5 ;							[U]ulewu ;	Info Meldung
+# [Typ];	Anzeigen ab Zeitpunkt ; Anzeigen bis Zeitpunkt ;	[Intervall in Minuten] ;	<Ziel> ;	[Text der angezeigt weden soll]
 #
 # Typ = Info, Warning oder Resolved
 #
@@ -19,20 +19,16 @@
 # [G]AD-Gruppe -> Alle Domänenbenutzer, die Mitglied der Gruppe "AD-Gruppe" sind.
 # [U]Max -> Nur der Benutzer "Max" ( ActiveDirectory oder Lokaler User)
 # [AD](Department)IT-Abteilung  -> ActiveDirectory Benutzer deren AD-Feld "Department" auf den Wert "IT-Abteilung" gesetzt ist (Kein Wildcard)
-#
-#
-# -> Derzeit wird nur die letzte Message, auf die die Zieldefinition zutrifft angezeigt. 
-# Beispiel:
-#
-# Info; 5 ; [AD](DisplayName)Max ; Test-Meldung AD-Feld Max
-# Info; 5 ; [U]Max; Test-Meldung Benutzer Max
-# -> Nur die Meldung "Test-Meldung Benutzer Max" wird erscheinen.
+##
+##
+# Beispiele 
+# Info; 26.08.2021 00:00; 30.08.2021 23:59; 60 ; [G]DPSUsers ; Info : Heute Systemupdate ab 12:00 Uhr  - Wartungsfenster von 12:00 UHr bis 13:00 Uhr
+# Warning; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [*] ; Warnung - Großstörung an alle
+# Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]mayer.peter ; Test-Meldung User mayer.peter
 
 
 
-Info; 5 ; [AD](Department)EDV ; Test-Meldung EDV
-Resolved; 5 ; [U]ulewu ; Test-Meldung User Ulewu
-#Info; 5 ; [AD](DisplayName)ulewu ; Test-Meldung AD-ulewu
-Info; 5 ; [AD](DisplayName)TEST ; Test-Meldung AD-TEST
-Warning; 5 ; [*]; Test-Warnung -Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->Anzahl Sekunden, nach denen die Nachricht erneut gezeigt werden soll ->
-Resolved; 5i ; [G]WG_Benutzer; Test-Resolved Group [G]
+#Resolved; 26.08.2021 00:00; 26.08.2021 23:59; 5 ; [U]ulewu ; Test-Meldung User Ulewu
+Info; 26.08.2021 00:00; 30.09.2021 23:59; 5 ; [U]ulewu ; Info - Bittte hier schauen: https://ulewu.de - Alternativer Link: htxtp://google.de
+#Warning; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Warnung vor dem Hunde!
+#Resolved; 26.08.2021 00:00; 30.08.2021 23:59; 5 ; [U]ulewu ; Hund will nur spielen.

@@ -83,6 +83,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -94,6 +95,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Banner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Banner.Designer.cs">
+      <DependentUpon>Banner.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +131,9 @@
       <DependentUpon>UserDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="Banner.resx">
+      <DependentUpon>Banner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIChangePassword.resx">
       <DependentUpon>GUIChangePassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +161,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="JoHeSupporter_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

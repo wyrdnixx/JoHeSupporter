@@ -27,7 +27,8 @@ namespace JoHeSupporter
             // normaler Programmstart
             if (args.Length == 0)
             {
-
+                // Normal Startup
+           
             }
             else if (args.Length == 1 && args[0] == "-encryptpwd")     // Wenn mit -encryptpwd passwort gestartet wurde
             {
