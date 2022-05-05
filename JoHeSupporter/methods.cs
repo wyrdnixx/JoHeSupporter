@@ -304,7 +304,7 @@ namespace JoHeSupporter
         {
             // Test - Zertifikat ausgeben
             //MessageBox.Show(certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString());
-            Console.WriteLine("SMTP-Zertifikat: " + certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString())
+            Console.WriteLine("SMTP-Zertifikat: " + certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString());
 
             return true;
         }

@@ -1,4 +1,3 @@
-C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.AssemblyReference.cache
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Banner.resources
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUIChangePassword.resources
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUI.resources
@@ -7,3 +6,16 @@ C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Relea
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.UserDialog.resources
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.GenerateResource.cache
 C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.CoreCompileInputs.cache
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\InfoDoku.pdf
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\MessageBanner.txt
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe.config
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe.manifest
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.application
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.pdb
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\SKGL.dll
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe.manifest
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.application
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.CopyComplete
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.pdb

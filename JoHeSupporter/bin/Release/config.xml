@@ -4,13 +4,13 @@
     <IconSize>30</IconSize>
     <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
-    <MailTLS>false</MailTLS> 
+    <MailTLS>true</MailTLS> 
     <UseUserMail>false</UseUserMail> 
-    <MailFrom>johesupporter@ulewu.de</MailFrom>
+    <MailFrom>jojo@ulewu.de</MailFrom>
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
-    <MailUsr>johesupporter</MailUsr>  
-    <MailPwdEnc>OzliNdAkt/k+BgEtekTiTTSFgv4D3hbue8gkkfDC71=!</MailPwdEnc>
+    <MailUsr>jojo</MailUsr>
+	<MailPwdEnc>OxD35XrEdpsPbNAgvaMJng==</MailPwdEnc>
     <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
