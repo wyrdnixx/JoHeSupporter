@@ -241,7 +241,8 @@ namespace JoHeSupporter
         public void sendLicenseWarningMail(string _expireDate)
         {
 
-            try { 
+            try
+            { 
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
 
@@ -279,25 +280,38 @@ namespace JoHeSupporter
             }
             else SmtpServer.EnableSsl = false;
 
-
-            SmtpServer.Send(mail);
+                
+                
+               SmtpServer.Send(mail);
+                
+                
           //  MessageBox.Show("Vielen Dank. Ihre Supportanfrage wurde gesendet!", "JoHeSupporter");
         }
             catch (Exception ex)
             {
+                
                 MessageBox.Show(ex.ToString()
                     + "\n\n" + "XML Parameter: "
                     + "\n" + _param.AppCfg_MailSrv.ToString()
                     + "\n" + _param.AppCfg_MailPrt
                     + "\n" + _param.AppCfg_MailUsr
                   //  + "\n" + _param.AppCfg_MailPwd
-
+                 
                     , "JoHeSupporter");
             }
 }
+        private bool RemoteServerCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            // Test - Zertifikat ausgeben
+            //MessageBox.Show(certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString());
+            Console.WriteLine("SMTP-Zertifikat: " + certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString())
+
+            return true;
+        }
 
         public void sendSupportMail(string _contactInfo,string _descriptionShort, string _htmltext)
         {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(RemoteServerCertificateValidationCallback);
 
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
@@ -352,6 +366,8 @@ namespace JoHeSupporter
                 string _subject = _user.ToString() + " - " + _client.ToString() + " : " + _descriptionShort.Replace(System.Environment.NewLine, " "); ;
 
                 mail.Subject = _subject;
+
+
 
                 // Lizenzinfo am Ende des Mail Textes einfügen.
                 _htmltext = _htmltext +  @"

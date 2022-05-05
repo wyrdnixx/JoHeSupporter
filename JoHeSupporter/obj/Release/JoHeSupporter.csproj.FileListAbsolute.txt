@@ -1,0 +1,9 @@
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.AssemblyReference.cache
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Banner.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUIChangePassword.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUI.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.MessageObject.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Properties.Resources.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.UserDialog.resources
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.GenerateResource.cache
+C:\Users\ulewu.CHAOS\source\repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.CoreCompileInputs.cache
