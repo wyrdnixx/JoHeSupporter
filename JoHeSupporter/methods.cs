@@ -139,6 +139,9 @@ namespace JoHeSupporter
                         case "MailTLS":
                             _param.AppCfg_MailTLS = element.InnerText;
                             break;
+                        case "DebugTLS":
+                            _param.AppCfg_DebugTLS = element.InnerText;
+                            break;
                         case "UseUserMail":
                             _param.AppCfg_UseUserMail = element.InnerText;
                             break;
@@ -300,11 +303,21 @@ namespace JoHeSupporter
                     , "JoHeSupporter");
             }
 }
+        // Debug SMTP Tls Certificate
         private bool RemoteServerCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {
             // Test - Zertifikat ausgeben
-            //MessageBox.Show(certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString());
-            Console.WriteLine("SMTP-Zertifikat: " + certificate.Subject + Environment.NewLine + certificate.GetSerialNumberString());
+            if (_param.AppCfg_DebugTLS == "True" || _param.AppCfg_DebugTLS == "true")
+            {
+                MessageBox.Show("SMTP-Zertifikat: " + Environment.NewLine +
+                "SN: " + certificate.GetSerialNumberString() + Environment.NewLine +
+                "Hash: " + certificate.GetCertHashString() + Environment.NewLine +
+                "From: " + certificate.GetEffectiveDateString() + Environment.NewLine +
+                "To: " + certificate.GetExpirationDateString() + Environment.NewLine +
+                "Issuer: " + certificate.Issuer + Environment.NewLine +
+                "Subject: " + certificate.Subject
+                );
+            }
 
             return true;
         }

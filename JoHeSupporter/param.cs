@@ -22,6 +22,7 @@ namespace JoHeSupporter
         string appCfg_MailSrv;
         string appCfg_MailPrt;
         string appCfg_MailTLS;
+        string appCfg_DebugTLS;
         string appCfg_MailFrom;
         string appCfg_MailTo;
         string appCfg_MailUsr;
@@ -334,5 +335,7 @@ namespace JoHeSupporter
                 appCfg_MailPwdEnc = value;
             }
         }
+
+        public string AppCfg_DebugTLS { get => appCfg_DebugTLS; set => appCfg_DebugTLS = value; }
     }
 }
