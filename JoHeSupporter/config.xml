@@ -4,13 +4,14 @@
     <IconSize>30</IconSize>
     <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
-    <MailTLS>false</MailTLS> 
-    <UseUserMail>false</UseUserMail> 
-    <MailFrom>johesupporter@ulewu.de</MailFrom>
+    <MailTLS>true</MailTLS>
+	<DebugTLS>false</DebugTLS>
+	<UseUserMail>false</UseUserMail> 
+    <MailFrom>jojo@ulewu.de</MailFrom>
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
-    <MailUsr>johesupporter</MailUsr>  
-    <MailPwdEnc>OzliNdAkt/k+BgEtekTiTTSFgv4D3hbue8gkkfDC71=!</MailPwdEnc>
+    <MailUsr>jojo</MailUsr>
+	<MailPwdEnc>OxD35XrEdpsPbNAgvaMJng==</MailPwdEnc>
     <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
@@ -47,6 +48,8 @@ MailPrt:
               Mail Server Port
 MailTLS:      
               Verwende TLS für die Mail Server Verbindung
+DebugTLS:   
+              Wenn TLS verwendet wird, wird beim versenden das Zertifikat des Servers angezeigt - hilft bei Zertifikatsproblemen bei der Fehlersuche
 UseUserMail:  
               Verwende die User Mail als MailFrom, wenn eine angegeben wurde. An sonnsten wird die Adresse aus MailFrom verwendet. (Die Mail Adresse des
               Users wird als ReplyTo Adresse in die Mail eingetragen)

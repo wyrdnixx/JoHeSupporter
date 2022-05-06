@@ -139,6 +139,9 @@ namespace JoHeSupporter
                         case "MailTLS":
                             _param.AppCfg_MailTLS = element.InnerText;
                             break;
+                        case "DebugTLS":
+                            _param.AppCfg_DebugTLS = element.InnerText;
+                            break;
                         case "UseUserMail":
                             _param.AppCfg_UseUserMail = element.InnerText;
                             break;
@@ -241,7 +244,8 @@ namespace JoHeSupporter
         public void sendLicenseWarningMail(string _expireDate)
         {
 
-            try { 
+            try
+            { 
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
 
@@ -279,25 +283,48 @@ namespace JoHeSupporter
             }
             else SmtpServer.EnableSsl = false;
 
-
-            SmtpServer.Send(mail);
+                
+                
+               SmtpServer.Send(mail);
+                
+                
           //  MessageBox.Show("Vielen Dank. Ihre Supportanfrage wurde gesendet!", "JoHeSupporter");
         }
             catch (Exception ex)
             {
+                
                 MessageBox.Show(ex.ToString()
                     + "\n\n" + "XML Parameter: "
                     + "\n" + _param.AppCfg_MailSrv.ToString()
                     + "\n" + _param.AppCfg_MailPrt
                     + "\n" + _param.AppCfg_MailUsr
                   //  + "\n" + _param.AppCfg_MailPwd
-
+                 
                     , "JoHeSupporter");
             }
 }
+        // Debug SMTP Tls Certificate
+        private bool RemoteServerCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
+        {
+            // Test - Zertifikat ausgeben
+            if (_param.AppCfg_DebugTLS == "True" || _param.AppCfg_DebugTLS == "true")
+            {
+                MessageBox.Show("SMTP-Zertifikat: " + Environment.NewLine +
+                "SN: " + certificate.GetSerialNumberString() + Environment.NewLine +
+                "Hash: " + certificate.GetCertHashString() + Environment.NewLine +
+                "From: " + certificate.GetEffectiveDateString() + Environment.NewLine +
+                "To: " + certificate.GetExpirationDateString() + Environment.NewLine +
+                "Issuer: " + certificate.Issuer + Environment.NewLine +
+                "Subject: " + certificate.Subject
+                );
+            }
+
+            return true;
+        }
 
         public void sendSupportMail(string _contactInfo,string _descriptionShort, string _htmltext)
         {
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(RemoteServerCertificateValidationCallback);
 
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
@@ -352,6 +379,8 @@ namespace JoHeSupporter
                 string _subject = _user.ToString() + " - " + _client.ToString() + " : " + _descriptionShort.Replace(System.Environment.NewLine, " "); ;
 
                 mail.Subject = _subject;
+
+
 
                 // Lizenzinfo am Ende des Mail Textes einfügen.
                 _htmltext = _htmltext +  @"

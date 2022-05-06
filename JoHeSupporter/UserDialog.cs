@@ -195,7 +195,5 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             return HTMLText;
 
         }
-
-
     }
 }
