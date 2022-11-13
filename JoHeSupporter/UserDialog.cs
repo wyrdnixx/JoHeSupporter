@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using System.DirectoryServices.AccountManagement;
 
 namespace JoHeSupporter
 {
@@ -161,8 +162,8 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             // Zeilenumbrüche in Fehlerbeschreibungstext durch HTML Zeilenumbrüche ersetzen
             string Description2HTML = textBox_description.Text.Replace(System.Environment.NewLine,"<br>");
 
-
-
+            DateTime? CurrentUserLoggedInTime = UserPrincipal.Current.LastLogon;
+            //MessageBox.Show(CurrentUserLoggedInTime.ToString());
 
             string HTMLText = @"
                 
@@ -188,8 +189,8 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             SESSIONNAME: " + Environment.GetEnvironmentVariable("SESSIONNAME") + @" <br>
             CLIENTNAME: " + Environment.GetEnvironmentVariable("CLIENTNAME") + @" <br>
             LOGONSERVER: " + Environment.GetEnvironmentVariable("LOGONSERVER") + @" <br>
-
-            <hr />
+            USER LOGIN ZEIT: " + CurrentUserLoggedInTime.ToString() + @" <br>
+            <hr/>
             ";
 
             return HTMLText;

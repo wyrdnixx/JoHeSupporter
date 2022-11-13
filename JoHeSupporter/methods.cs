@@ -65,21 +65,21 @@ namespace JoHeSupporter
             }
 
             // Mail Nachricht senden, wenn die Lizenz in weniger als 30 Tagen abläuft.
-
-            if (_license.getLicenseDaysLeft() < 30)
-            {
-                
-                sendLicenseWarningMail(_license.getLicenseExpireDate().ToString());
-                
-            }
-
+            //13.11.2022 - nur noch prüfung ob Lizenz gülltig - Ablaufdatum ignorieren.
+            //if (_license.getLicenseDaysLeft() < 30)
+            //{
+            //   
+            //   sendLicenseWarningMail(_license.getLicenseExpireDate().ToString());
+            //    
+            //}
+            //
             // Lizenzablaufdatum für HTML Text auslesen.
-            try
-            {
-                _LicenseExpireDate = _license.getLicenseExpireDate().ToString();
-                //MessageBox.Show(_LicenseExpireDate);
-            }
-            catch (Exception e) { MessageBox.Show(e.Message.ToString()); }
+            //try
+            //{
+            //    _LicenseExpireDate = _license.getLicenseExpireDate().ToString();
+            //    //MessageBox.Show(_LicenseExpireDate);
+            //}
+            //catch (Exception e) { MessageBox.Show(e.Message.ToString()); }
 
             #endregion Lizenzprüfung
 
@@ -241,6 +241,7 @@ namespace JoHeSupporter
 
         #region Mail
 
+        //  //13.11.2022 - nur noch prüfung ob Lizenz gülltig - Ablaufdatum ignorieren.
         public void sendLicenseWarningMail(string _expireDate)
         {
 
@@ -383,9 +384,11 @@ namespace JoHeSupporter
 
 
                 // Lizenzinfo am Ende des Mail Textes einfügen.
+                //13.11.2022 - nur noch prüfung ob Lizenz gülltig - Ablaufdatum ignorieren.
+                //< small > JoHeSupporter " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - Lizenz gülltig bis: " + _LicenseExpireDate + @" </ small >
                 _htmltext = _htmltext +  @"
                 <center>
-                <small>JoHeSupporter " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - Lizenz gülltig bis: " + _LicenseExpireDate + @"</small>                    
+                <small>JoHeSupporter " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + @"</small>                    
                 </center>
                 " ;
 

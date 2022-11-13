@@ -25,7 +25,9 @@ namespace JoHeSupporter
             //Console.WriteLine(SKGL_Key.IsValid.ToString() + SKGL_Key.DaysLeft.ToString());
 
             // Lizenz prüfen.
-            if (SKGL_Key.IsValid && SKGL_Key.DaysLeft > 0)
+            //if (SKGL_Key.IsValid && SKGL_Key.DaysLeft > 0)
+            //13.11.2022 - nur noch prüfung ob Lizenz gülltig - Ablaufdatum ignorieren.
+            if (SKGL_Key.IsValid )
             {
                 return true;
             }
