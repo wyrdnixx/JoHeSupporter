@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JoHeSupporter
 {
@@ -17,7 +19,10 @@ namespace JoHeSupporter
         public bool checkLicense(string _licKey)
         {
             // Console.WriteLine(_licKey);
-            SKGL_Key.secretPhase = "!JoHeSupporter";
+            // Version 3.0.3.0 : Assembly Major release Version einbezogen            
+            string strVersion = Application.ProductVersion.Split('.')[0];
+            //MessageBox.Show(strVersion);
+            SKGL_Key.secretPhase = "!JoHeSupporter"+strVersion;
 
             SKGL_Key.Key = _licKey;
 
@@ -25,12 +30,16 @@ namespace JoHeSupporter
             //Console.WriteLine(SKGL_Key.IsValid.ToString() + SKGL_Key.DaysLeft.ToString());
 
             // Lizenz prüfen.
-            if (SKGL_Key.IsValid && SKGL_Key.DaysLeft > 0)
-            {
+            // Version 3.0.3.0 : Ablaufdatum entfernt
+            //if (SKGL_Key.IsValid && SKGL_Key.DaysLeft > 0)
+            if (SKGL_Key.IsValid )
+                {
+                //MessageBox.Show("Is valid");
                 return true;
             }
             else
-                return false;
+                //MessageBox.Show("Is invalid");
+            return false;
 
         }
 

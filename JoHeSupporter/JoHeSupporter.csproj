@@ -179,6 +179,7 @@
     <None Include="Resources\Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="README.txt" />
     <None Include="close_icon.png" />
     <Content Include="config.xml" />
     <Content Include="Icon.ico" />

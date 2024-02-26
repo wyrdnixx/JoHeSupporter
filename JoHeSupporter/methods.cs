@@ -22,23 +22,34 @@ namespace JoHeSupporter
         #region Method_init
         private param _param;
         public string _LicenseExpireDate;
-        
+
         public methods(param _givenparam)
         {
             // Parameterobjekt übergeben
             _param = _givenparam;
 
             // XML Datei laden
-//            _param.Cfgxml = AppDomain.CurrentDomain.BaseDirectory + "config.xml";            
+            //            _param.Cfgxml = AppDomain.CurrentDomain.BaseDirectory + "config.xml";            
             parsecfgxml(_param.Cfgxml);
 
 
             #region Lizenzprüfung
             license _license = new license();
 
-    
 
+            // Refactor v3.0.3.0 - Nur noch Lizenzprüfung anhand Version
+
+            if (!_license.checkLicense(_param.AppCfg_License))
+            {
+                MessageBox.Show("Lizenz ist ungültig. Programm wird beendet.", "JoHeSupporter");
+                // Programm wegen Lizenzfehler beenden                
+                System.Environment.Exit(1);
+            }
+                
+
+            /// Old - vor Version 3.0.3.0
             // lizenz für das Programm prüfen
+            /*
             if (!_license.checkLicense(_param.AppCfg_License))
             {
                 string _licenseDate = "";
@@ -81,6 +92,7 @@ namespace JoHeSupporter
             }
             catch (Exception e) { MessageBox.Show(e.Message.ToString()); }
 
+            */
             #endregion Lizenzprüfung
 
         }
@@ -241,6 +253,8 @@ namespace JoHeSupporter
 
         #region Mail
 
+        // Refactor v3.0.3.0 - deaktiviert - Nur noch Lizenzprüfung anhand Version
+        /*
         public void sendLicenseWarningMail(string _expireDate)
         {
 
@@ -289,7 +303,7 @@ namespace JoHeSupporter
                 
                 
           //  MessageBox.Show("Vielen Dank. Ihre Supportanfrage wurde gesendet!", "JoHeSupporter");
-        }
+            }
             catch (Exception ex)
             {
                 
@@ -302,7 +316,8 @@ namespace JoHeSupporter
                  
                     , "JoHeSupporter");
             }
-}
+        }
+        */
         // Debug SMTP Tls Certificate
         private bool RemoteServerCertificateValidationCallback(object sender, System.Security.Cryptography.X509Certificates.X509Certificate certificate, System.Security.Cryptography.X509Certificates.X509Chain chain, System.Net.Security.SslPolicyErrors sslPolicyErrors)
         {

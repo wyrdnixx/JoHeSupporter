@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <appcfg>
-    <License>MWZJC-LTYBA-UGKCJ-KTSIB</License>
-    <IconSize>30</IconSize>
+    <License_Test>LSPCG-NESXD-LMXWC-BHTNI</License_Test>
+	<License>HHTGD-QXROS-GMZNQ-GKFOWX</License>
+	<IconSize>30</IconSize>
     <MailSrv>ex1216.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
     <MailTLS>true</MailTLS>
@@ -104,6 +105,9 @@ Für jedweden direkten oder indirekten Schaden - insbesondere Schaden an anderer
 
 Diese Software wurde mit größter Sorgfalt entwickelt, jedoch können Fehler niemals ausgeschlossen werden. Es kann daher keine Gewähr für die Sicherheit Ihrer Daten übernommen werden.
 -->
+
+
+
 
 <!-- SKGL Licence information
 
