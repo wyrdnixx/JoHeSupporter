@@ -17,6 +17,9 @@ Diese Software wurde mit größter Sorgfalt entwickelt, jedoch können Fehler ni
 <!--
 ChangeLog
 
+v3.0.3.1:
+- SMTP-TLS - TLS v1.2 support 
+
 v3.0.3.0:
 - Lizenzablauf angepasst - Zeitraum entfernt - Major Releaseversion in Lizenzierung einbezogen
 

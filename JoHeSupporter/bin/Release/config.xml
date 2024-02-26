@@ -1,17 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <appcfg>
-    <License>MWZJC-LTYBA-UGKCJ-KTSIB</License>
-    <IconSize>30</IconSize>
-    <MailSrv>ex1216.chaos.local</MailSrv>  
+    <License_Test>LSPCG-NESXD-LMXWC-BHTNI</License_Test>
+	<License>HHTGD-QXROS-GMZNQ-GKFOW</License>
+	<IconSize>30</IconSize>
+    <MailSrv>DMZ-Exch-1.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 
-    <MailTLS>true</MailTLS>
+    <MailTLS>true</MailTLS>  
 	<DebugTLS>false</DebugTLS>
 	<UseUserMail>false</UseUserMail> 
     <MailFrom>jojo@ulewu.de</MailFrom>
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>jojo</MailUsr>
-	<MailPwdEnc>OxD35XrEdpsPbNAgvaMJng==</MailPwdEnc>
+	<MailPwdEnc>9K0ao5i0A31PqWVnxBtb4eKcJ9M8vZgEAabr8XBqK3Y=</MailPwdEnc>
     <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
@@ -104,6 +105,9 @@ Für jedweden direkten oder indirekten Schaden - insbesondere Schaden an anderer
 
 Diese Software wurde mit größter Sorgfalt entwickelt, jedoch können Fehler niemals ausgeschlossen werden. Es kann daher keine Gewähr für die Sicherheit Ihrer Daten übernommen werden.
 -->
+
+
+
 
 <!-- SKGL Licence information
 
