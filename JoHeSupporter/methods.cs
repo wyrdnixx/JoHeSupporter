@@ -340,9 +340,10 @@ namespace JoHeSupporter
         public void sendSupportMail(string _contactInfo,string _descriptionShort, string _htmltext)
         {
             System.Net.ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(RemoteServerCertificateValidationCallback);
-
+            
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient(_param.AppCfg_MailSrv.ToString());
+            
 
             try
             {
@@ -398,11 +399,17 @@ namespace JoHeSupporter
 
 
                 // Lizenzinfo am Ende des Mail Textes einfügen.
-                _htmltext = _htmltext +  @"
+                // v3.0.3.0 - Lizenzdatum entfernt
+                /*_htmltext = _htmltext +  @"
                 <center>
                 <small>JoHeSupporter " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - Lizenz gülltig bis: " + _LicenseExpireDate + @"</small>                    
                 </center>
-                " ;
+                " ; */
+                _htmltext = _htmltext + @"
+                <center>
+                <small>JoHeSupporter " + Assembly.GetExecutingAssembly().GetName().Version.ToString() + @"</small>                    
+                </center>
+                ";
 
                 // Logfiles etc. an die Mail anhängen.
                 foreach (var file in _param.AppCfg_AttachFile) 
@@ -481,6 +488,10 @@ namespace JoHeSupporter
                 if (_param.AppCfg_MailTLS == "True" || _param.AppCfg_MailTLS == "true")
                 {
                     SmtpServer.EnableSsl = true;
+                    // v3.0.3.1 Enable Tls 1.2 Support
+                    System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                    
+
                 } else SmtpServer.EnableSsl = false;
 
 
