@@ -43,6 +43,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel_InfoURL = new System.Windows.Forms.LinkLabel();
+            this.pbScreenshot = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbSysinfo1 = new System.Windows.Forms.Label();
+            this.tbSysinfo2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pbScreenshot)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Hello
@@ -174,11 +179,51 @@
             this.linkLabel_InfoURL.Text = "linkLabel1";
             this.linkLabel_InfoURL.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_InfoURL_LinkClicked);
             // 
+            // pbScreenshot
+            // 
+            this.pbScreenshot.Location = new System.Drawing.Point(441, 149);
+            this.pbScreenshot.Name = "pbScreenshot";
+            this.pbScreenshot.Size = new System.Drawing.Size(648, 308);
+            this.pbScreenshot.TabIndex = 17;
+            this.pbScreenshot.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(740, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(178, 20);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Systeminformationen";
+            // 
+            // tbSysinfo1
+            // 
+            this.tbSysinfo1.AutoSize = true;
+            this.tbSysinfo1.Location = new System.Drawing.Point(493, 54);
+            this.tbSysinfo1.Name = "tbSysinfo1";
+            this.tbSysinfo1.Size = new System.Drawing.Size(56, 13);
+            this.tbSysinfo1.TabIndex = 19;
+            this.tbSysinfo1.Text = "tbSysinfo1";
+            // 
+            // tbSysinfo2
+            // 
+            this.tbSysinfo2.AutoSize = true;
+            this.tbSysinfo2.Location = new System.Drawing.Point(835, 54);
+            this.tbSysinfo2.Name = "tbSysinfo2";
+            this.tbSysinfo2.Size = new System.Drawing.Size(56, 13);
+            this.tbSysinfo2.TabIndex = 19;
+            this.tbSysinfo2.Text = "tbSysinfo2";
+            // 
             // UserDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 469);
+            this.ClientSize = new System.Drawing.Size(1101, 469);
+            this.Controls.Add(this.tbSysinfo2);
+            this.Controls.Add(this.tbSysinfo1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pbScreenshot);
             this.Controls.Add(this.linkLabel_InfoURL);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -200,6 +245,7 @@
             this.Name = "UserDialog";
             this.Text = "JoHeSupporter";
             this.Load += new System.EventHandler(this.UserDialog_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbScreenshot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,5 +267,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel_InfoURL;
+        private System.Windows.Forms.PictureBox pbScreenshot;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tbSysinfo1;
+        private System.Windows.Forms.Label tbSysinfo2;
     }
 }

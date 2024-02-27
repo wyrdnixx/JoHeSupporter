@@ -179,7 +179,9 @@
     <None Include="Resources\Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="README.txt" />
+    <Content Include="README.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="close_icon.png" />
     <Content Include="config.xml" />
     <Content Include="Icon.ico" />

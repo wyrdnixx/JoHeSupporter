@@ -31,6 +31,11 @@ namespace JoHeSupporter
             }
             else this.check_HighPrio.Visible = false;
 
+            fillSysinfo();
+
+            //ToDO: make image clickable 
+            pbScreenshot.Image = Image.FromFile(Param.screenshotfile);
+            pbScreenshot.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private void UserDialog_Load(object sender, EventArgs e)
@@ -40,6 +45,28 @@ namespace JoHeSupporter
 
             linkLabel_InfoURL.Text = Param.AppCfg_infoLinkText;
 
+        }
+
+
+
+        private void fillSysinfo()
+        {
+            /*
+             * ToDo:
+             * get client IP via powershell - evtl. use eventlog to get client IP
+            (Get - WinEvent - FilterHashtable @{ LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'; ID = 1149; StartTime = (Get - Date).AddDays(-31); } | ForEach - Object {[PSCustomObject] @{ User =$_.Properties[0].Value; IPAddress =$_.Properties[2].Value; TimeCreated =$_.TimeCreated; } } | Where - Object User - eq $env: USERNAME | Sort - Object - Property TimeCreated - Descending | Select - Object - First 1).IPAddress
+            */
+
+            tbSysinfo1.Text = "" +
+            "USERNAME: " + Environment.GetEnvironmentVariable("USERNAME") + "\r" +
+            "USERDOMAIN: " + Environment.GetEnvironmentVariable("USERDOMAIN") + "\r" +
+            "COMPUTERNAME: " + Environment.GetEnvironmentVariable("COMPUTERNAME");
+            ;
+
+            tbSysinfo2.Text = "" +
+            "CLIENTNAME: " + Environment.GetEnvironmentVariable("CLIENTNAME") + "\r" +
+            "SESSIONNAME: " + Environment.GetEnvironmentVariable("SESSIONNAME") + "\r" +            
+            "LOGONSERVER: " + Environment.GetEnvironmentVariable("LOGONSERVER");
         }
 
         private void linkLabel_InfoURL_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

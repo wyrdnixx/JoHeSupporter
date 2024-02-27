@@ -27,7 +27,6 @@ C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHe
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.exe
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\JoHeSupporter.pdb
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\SKGL.dll
-C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.AssemblyReference.cache
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Banner.resources
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUIChangePassword.resources
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.GUI.resources
@@ -41,3 +40,5 @@ C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHe
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.CopyComplete
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.pdb
+C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\README.txt
+C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.AssemblyReference.cache
