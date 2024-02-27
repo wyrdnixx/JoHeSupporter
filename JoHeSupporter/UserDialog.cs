@@ -51,6 +51,7 @@ namespace JoHeSupporter
 
         private void fillSysinfo()
         {
+            
            
             tbSysinfo1.Text = "" +
             "USERNAME: " + Environment.GetEnvironmentVariable("USERNAME") + "\r" +

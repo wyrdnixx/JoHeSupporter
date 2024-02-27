@@ -22,7 +22,7 @@ v3.0.3.1:
 
 v3.0.3.0:
 - Lizenzablauf angepasst - Zeitraum entfernt - Major Releaseversion in Lizenzierung einbezogen
-
+- Preview PictureBox eingebaut
 
 -->
 
