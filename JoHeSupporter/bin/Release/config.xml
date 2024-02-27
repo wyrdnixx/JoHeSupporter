@@ -12,7 +12,7 @@
     <MailTo>Jojo@ulewu.de</MailTo>
     <UseMailAuth>true</UseMailAuth> 
     <MailUsr>jojo</MailUsr>
-	<MailPwdEnc>9K0ao5i0A31PqWVnxBtb4eKcJ9M8vZgEAabr8XBqK3Y=</MailPwdEnc>
+	<MailPwdEnc>9K0ao5i0A31PqWr8XBqK3Y=</MailPwdEnc>
     <CustomIconFile></CustomIconFile>
     <EnablePrio>true</EnablePrio>
     <ContactMandatory>true</ContactMandatory>
@@ -48,7 +48,7 @@ MailSrv:
 MailPrt:      
               Mail Server Port
 MailTLS:      
-              Verwende TLS für die Mail Server Verbindung
+              Verwende TLS für die Mail Server Verbindung - Tls v1.2 supported
 DebugTLS:   
               Wenn TLS verwendet wird, wird beim versenden das Zertifikat des Servers angezeigt - hilft bei Zertifikatsproblemen bei der Fehlersuche
 UseUserMail:  

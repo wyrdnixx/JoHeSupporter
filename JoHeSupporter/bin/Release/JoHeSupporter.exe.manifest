@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="573952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JoHeSupporter.exe" size="575488">
       <assemblyIdentity name="JoHeSupporter" version="3.0.4.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dt9oo5JEsOFVAjp2zsXP9h4YpkzoOM3LkO06E9sYmaI=</dsig:DigestValue>
+        <dsig:DigestValue>6T8YCj2b2lIRFFHs/EeRQzOcgntizHjkSkL6HtjahZQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,13 +66,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="config.xml" size="6791" writeableType="applicationData">
+  <file name="config.xml" size="6782" writeableType="applicationData">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>XVTti9OBz1u8cnznfvDnO5bfqO2axkgDlVpKamHi6qM=</dsig:DigestValue>
+      <dsig:DigestValue>kpTEeoLksIcWOTO5spgkLB4Crm5TlA0LzrVa25EHyL4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Icon.ico" size="119078">

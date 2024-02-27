@@ -33,7 +33,7 @@ namespace JoHeSupporter
 
             fillSysinfo();
 
-            //ToDO: make image clickable 
+             
             pbScreenshot.Image = Image.FromFile(Param.screenshotfile);
             pbScreenshot.SizeMode = PictureBoxSizeMode.StretchImage;
         }
@@ -51,12 +51,7 @@ namespace JoHeSupporter
 
         private void fillSysinfo()
         {
-            /*
-             * ToDo:
-             * get client IP via powershell - evtl. use eventlog to get client IP
-            (Get - WinEvent - FilterHashtable @{ LogName = 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational'; ID = 1149; StartTime = (Get - Date).AddDays(-31); } | ForEach - Object {[PSCustomObject] @{ User =$_.Properties[0].Value; IPAddress =$_.Properties[2].Value; TimeCreated =$_.TimeCreated; } } | Where - Object User - eq $env: USERNAME | Sort - Object - Property TimeCreated - Descending | Select - Object - First 1).IPAddress
-            */
-
+           
             tbSysinfo1.Text = "" +
             "USERNAME: " + Environment.GetEnvironmentVariable("USERNAME") + "\r" +
             "USERDOMAIN: " + Environment.GetEnvironmentVariable("USERDOMAIN") + "\r" +
@@ -221,6 +216,12 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
 
             return HTMLText;
 
+        }
+
+        private void pbScreenshot_Click(object sender, EventArgs e)
+        {
+            Picture_Preview pv = new Picture_Preview(Param);
+            pv.Show();
         }
     }
 }

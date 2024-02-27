@@ -122,6 +122,12 @@
     </Compile>
     <Compile Include="methods.cs" />
     <Compile Include="param.cs" />
+    <Compile Include="Picture_Preview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Picture_Preview.Designer.cs">
+      <DependentUpon>Picture_Preview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDialog.cs">
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MessageBanner.resx">
       <DependentUpon>MessageBanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Picture_Preview.resx">
+      <DependentUpon>Picture_Preview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

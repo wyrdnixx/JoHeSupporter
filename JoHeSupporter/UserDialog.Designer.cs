@@ -181,11 +181,12 @@
             // 
             // pbScreenshot
             // 
-            this.pbScreenshot.Location = new System.Drawing.Point(441, 149);
+            this.pbScreenshot.Location = new System.Drawing.Point(477, 149);
             this.pbScreenshot.Name = "pbScreenshot";
-            this.pbScreenshot.Size = new System.Drawing.Size(648, 308);
+            this.pbScreenshot.Size = new System.Drawing.Size(612, 308);
             this.pbScreenshot.TabIndex = 17;
             this.pbScreenshot.TabStop = false;
+            this.pbScreenshot.Click += new System.EventHandler(this.pbScreenshot_Click);
             // 
             // label1
             // 
@@ -200,18 +201,20 @@
             // tbSysinfo1
             // 
             this.tbSysinfo1.AutoSize = true;
-            this.tbSysinfo1.Location = new System.Drawing.Point(493, 54);
+            this.tbSysinfo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSysinfo1.Location = new System.Drawing.Point(561, 57);
             this.tbSysinfo1.Name = "tbSysinfo1";
-            this.tbSysinfo1.Size = new System.Drawing.Size(56, 13);
+            this.tbSysinfo1.Size = new System.Drawing.Size(66, 13);
             this.tbSysinfo1.TabIndex = 19;
             this.tbSysinfo1.Text = "tbSysinfo1";
             // 
             // tbSysinfo2
             // 
             this.tbSysinfo2.AutoSize = true;
-            this.tbSysinfo2.Location = new System.Drawing.Point(835, 54);
+            this.tbSysinfo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSysinfo2.Location = new System.Drawing.Point(821, 54);
             this.tbSysinfo2.Name = "tbSysinfo2";
-            this.tbSysinfo2.Size = new System.Drawing.Size(56, 13);
+            this.tbSysinfo2.Size = new System.Drawing.Size(66, 13);
             this.tbSysinfo2.TabIndex = 19;
             this.tbSysinfo2.Text = "tbSysinfo2";
             // 

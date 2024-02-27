@@ -41,4 +41,4 @@ C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHe
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.exe
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.pdb
 C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\bin\Release\README.txt
-C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.csproj.AssemblyReference.cache
+C:\Users\jojo\Source\Repos\wyrdnixx\JoHeSupporter\JoHeSupporter\obj\Release\JoHeSupporter.Picture_Preview.resources
