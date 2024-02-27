@@ -52,6 +52,7 @@ namespace JoHeSupporter
         private void fillSysinfo()
         {
             
+            // ToDo: Environment variale funktioniert nicht zuverlässig
            
             tbSysinfo1.Text = "" +
             "USERNAME: " + Environment.GetEnvironmentVariable("USERNAME") + "\r" +
@@ -184,7 +185,7 @@ TSOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND ANY 
             // Zeilenumbrüche in Fehlerbeschreibungstext durch HTML Zeilenumbrüche ersetzen
             string Description2HTML = textBox_description.Text.Replace(System.Environment.NewLine,"<br>");
 
-
+            // ToDo: Environment variale funktioniert nicht zuverlässig
 
 
             string HTMLText = @"
