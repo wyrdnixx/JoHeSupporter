@@ -17,6 +17,13 @@ Diese Software wurde mit größter Sorgfalt entwickelt, jedoch können Fehler ni
 <!--
 ChangeLog
 
+- ToDo: / Known Bug: Umgebungsvariablen werden manchmal nicht richtig gelesen und Daten bleiben leer
+- ToDo: / Known Bug: Screenshot Datei muss noch entladen werden beim Fenster schließen. Sonst kann nur ein Screenshot gemacht werden und beim zweiten Klicken ist die Datei noch gesperrt.
+
+v3.0.4.0:
+- Vorschaubild des Screenshot
+
+
 v3.0.3.1:
 - SMTP-TLS - TLS v1.2 support 
 

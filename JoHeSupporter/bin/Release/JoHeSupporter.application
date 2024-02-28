@@ -4,7 +4,7 @@
   <description asmv2:publisher="JoHeSupporter" asmv2:product="JoHeSupporter" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="JoHeSupporter.exe.manifest" size="5897">
@@ -14,7 +14,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HVhlrwDjyz4rVGyXgvTgWAJ+VXI7IQCVa+09MEwnYXQ=</dsig:DigestValue>
+        <dsig:DigestValue>KEO2LR0VDrP5fMKeOlA8glHfRWC/SgEDWtSOYkRsbLU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
