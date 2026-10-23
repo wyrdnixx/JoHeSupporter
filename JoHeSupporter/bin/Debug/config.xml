@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <appcfg>
     <License_Test>LSPCG-NESXD-LMXWC-BHTNI</License_Test>
-	<License>NADLW-RMAQX-TXXAJ-</License>
+	<License>NADLW-RMAQX-TXXAJ-URQDR</License>
 	<IconSize>30</IconSize>
     <MailSrv>DMZ-Exch-1.chaos.local</MailSrv>  
     <MailPrt>587</MailPrt> 

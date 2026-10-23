@@ -33,9 +33,15 @@ namespace JoHeSupporter
 
             fillSysinfo();
 
-             
-            pbScreenshot.Image = Image.FromFile(Param.screenshotfile);
+            // Bugfix : Image.FromFile() sperrt die Datei, daher wird ein Bitmap Objekt erstellt.
+            //pbScreenshot.Image = Image.FromFile(Param.screenshotfile);
+            //pbScreenshot.SizeMode = PictureBoxSizeMode.StretchImage;
+            using (var img = Image.FromFile(Param.screenshotfile))
+            {
+                pbScreenshot.Image = new Bitmap(img);
+            }
             pbScreenshot.SizeMode = PictureBoxSizeMode.StretchImage;
+
         }
 
         private void UserDialog_Load(object sender, EventArgs e)
